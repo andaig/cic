@@ -2,8 +2,9 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package cic;
+package cicTest;
 
+import cic.Cic;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -20,22 +21,7 @@ public class CicTest {
     public CicTest() {
     }
     
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
-    }
-
+   
     /**
      * Test of main method, of class Cic.
      */

@@ -15,7 +15,7 @@ import org.junit.runners.Suite;
  * @author alfredo
  */
 @RunWith(Suite.class)
-@Suite.SuiteClasses({cic.CicSuite.class})
+@Suite.SuiteClasses(cicTest.CicSuite.class)
 public class RootSuite {
 
     @BeforeClass
