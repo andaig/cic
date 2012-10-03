@@ -4,6 +4,8 @@
  */
 package cic;
 
+import cic.view.LoginPage;
+
 /**
  *
  * @author alfredo
@@ -15,5 +17,10 @@ public class Cic {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
+        
+        LoginPage logpg=new LoginPage();
+        logpg.setVisible(true);
+        
     }
 }
