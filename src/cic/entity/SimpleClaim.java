@@ -13,8 +13,12 @@ public class SimpleClaim extends Claim{
         super(ssn,desc,costDamage,PriceCar);
     }
     
+    
+    private ClaimStatus CheckInsuranceStatus=ClaimStatus.NOT_COMPLETED;
     private ClaimStatus PhoneGarageStatus=ClaimStatus.NOT_COMPLETED;
-
+    
+    
+    
     public ClaimStatus getPhoneGarageStatus() {
         return PhoneGarageStatus;
     }
@@ -22,7 +26,7 @@ public class SimpleClaim extends Claim{
     public ClaimStatus getCheckInsuranceStatus() {
         return CheckInsuranceStatus;
     }
-    private ClaimStatus CheckInsuranceStatus=ClaimStatus.NOT_COMPLETED;
+   
 
     public String generateGarageText() {
         String smsText="Request of intervention for car belonging to "+
@@ -35,6 +39,10 @@ public class SimpleClaim extends Claim{
     public void setPhoneGarageCompleted() {
         this.PhoneGarageStatus= ClaimStatus.COMPLETED;
     }
+
+    
+
+   
     
     
     

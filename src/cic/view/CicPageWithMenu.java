@@ -43,6 +43,7 @@ public class CicPageWithMenu extends CicPage {
         RegisterClaimMenuItem = new javax.swing.JMenuItem();
         UnclassifiedClaimsMenuItem = new javax.swing.JMenuItem();
         ClassifiedClaimsMenuItem = new javax.swing.JMenuItem();
+        MakeDecisionMenuItem = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -78,6 +79,14 @@ public class CicPageWithMenu extends CicPage {
         });
         jMenu3.add(ClassifiedClaimsMenuItem);
 
+        MakeDecisionMenuItem.setText("Make Decision");
+        MakeDecisionMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MakeDecisionMenuItemActionPerformed(evt);
+            }
+        });
+        jMenu3.add(MakeDecisionMenuItem);
+
         jMenuBar1.add(jMenu3);
 
         setJMenuBar(jMenuBar1);
@@ -90,7 +99,7 @@ public class CicPageWithMenu extends CicPage {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 283, Short.MAX_VALUE)
+            .addGap(0, 287, Short.MAX_VALUE)
         );
 
         pack();
@@ -116,6 +125,13 @@ public class CicPageWithMenu extends CicPage {
         ucp.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_ClassifiedClaimsMenuItemActionPerformed
+
+    private void MakeDecisionMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MakeDecisionMenuItemActionPerformed
+        // TODO add your handling code here:
+        MakeDecisionPage mkp=new MakeDecisionPage();
+        mkp.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_MakeDecisionMenuItemActionPerformed
 
     /**
      * @param args the command line arguments
@@ -153,6 +169,7 @@ public class CicPageWithMenu extends CicPage {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem ClassifiedClaimsMenuItem;
+    private javax.swing.JMenuItem MakeDecisionMenuItem;
     private javax.swing.JMenuItem RegisterClaimMenuItem;
     private javax.swing.JMenuItem UnclassifiedClaimsMenuItem;
     private javax.swing.JMenu jMenu1;

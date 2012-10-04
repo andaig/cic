@@ -52,7 +52,7 @@ public class Cic {
          
          claim2.classifyAsComplex();
          claim3.classifyAsSimple();
-         claim2.setOverallCompleted();
+         claim2.setPreliminaryCompleted();
          claim3.setOverallCompleted();
          
          

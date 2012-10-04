@@ -7,7 +7,9 @@ package cic.controller;
 import cic.entity.Claim;
 import cic.entity.ClaimComplexity;
 import cic.entity.ClaimStatus;
+import cic.entity.Decision;
 import cic.entity.SimpleClaim;
+import cic.entity.User;
 import java.util.ArrayList;
 
 /**
@@ -79,6 +81,25 @@ public class CClaimManager {
          }        
          
          return smsSuccess;
+    }
+
+    public ArrayList<Claim> getPreliminaryCompleteClaims() {
+        ArrayList<Claim> ret=new ArrayList<>();
+        for(Claim c : this.claims){
+            if(c.getPreliminaryStatus()==ClaimStatus.COMPLETED && 
+                    c.getOverallStatus()==ClaimStatus.NOT_COMPLETED){
+                ret.add(c);
+            }
+        }
+        return ret;
+    }
+
+    public Boolean decide(Claim sc, Decision decision, String decisionText) {
+        sc.decide(Decision.NOK);
+        CCommunicationManager com=new CCommunicationManager();
+        User u=new User();
+        u.load(sc.getOwnerSsn());
+        return com.sendDecision(decisionText, u.getEmail());
     }
     
 }

@@ -31,5 +31,9 @@ public class CCommunicationManager {
         
         return true;
     }
+
+    Boolean sendDecision(String decisionText, String email) {
+        return true;
+    }
     
 }

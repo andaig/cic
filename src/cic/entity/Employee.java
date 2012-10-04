@@ -50,8 +50,8 @@ public class Employee {
         
         }
         else {
-            this.username=null;
-            this.password=null;
+            this.username="";
+            this.password="";
             
         }
 

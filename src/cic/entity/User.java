@@ -13,6 +13,7 @@ public class User {
     private String ssn;
     private String fname;
     private String lname;
+    private String email;
     
     public User(){
     }
@@ -31,7 +32,9 @@ public class User {
     public String getLname(){
         return this.lname;
     }
-    
+    public String getEmail(){
+    return this.email;
+    }
     
       //simulates interaction with db
     public void load(String ssnArg){

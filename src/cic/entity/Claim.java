@@ -10,14 +10,16 @@ package cic.entity;
  */
 public class Claim {
 
-  private Integer id;
-  private String ownerSsn;
-  private String description;
-  private Double costOfDamage;
-  private Double priceOfCar;
-  private ClaimComplexity complexity=ClaimComplexity.NOT_CLASSIFIED;
+  protected Integer id;
+  protected String ownerSsn;
+  protected String description;
+  protected Double costOfDamage;
+  protected Double priceOfCar;
+  protected ClaimComplexity complexity=ClaimComplexity.NOT_CLASSIFIED;
+  protected ClaimStatus preliminaryStatus=ClaimStatus.NOT_COMPLETED;
   
-  private ClaimStatus overallStatus=ClaimStatus.NOT_COMPLETED;
+  protected ClaimStatus overallStatus=ClaimStatus.NOT_COMPLETED;
+  protected Decision finalDecision=Decision.NOT_TAKEN;
 
 
     public Integer getId() {
@@ -47,6 +49,16 @@ public class Claim {
     public ClaimStatus getOverallStatus() {
         return overallStatus;
     }
+    
+    public ClaimStatus getPreliminaryStatus() {
+        return preliminaryStatus;
+    }
+    
+     public void setPreliminaryCompleted() {
+           this.preliminaryStatus= ClaimStatus.COMPLETED;
+    }
+     
+     
     public void setOverallCompleted(){
         this.overallStatus= ClaimStatus.COMPLETED;
     }
@@ -76,6 +88,14 @@ public class Claim {
     
     public static Integer getNextId(){
         return n++;        
+    }
+    public void decide(Decision d){
+        this.finalDecision=d;
+        this.overallStatus=ClaimStatus.COMPLETED;
+    
+    }
+    public Decision getFinalDecision() {
+        return this.finalDecision;
     }
     
 }
