@@ -7,6 +7,7 @@ package cicTest;
 import cic.controller.CClaimManager;
 import cic.controller.CUserManager;
 import cic.entity.Claim;
+import cic.entity.ClaimComplexity;
 import cic.entity.User;
 import java.util.ArrayList;
 import org.junit.Test;
@@ -23,6 +24,20 @@ public class ViewUnclassifiedClaimsTest {
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:
     //
+    
+    @Test
+    public void classifyTest(){
+        Claim c1=new Claim("a", "b", 1.0, 2.9);
+        assertTrue(c1.getComplexity()==ClaimComplexity.NOT_CLASSIFIED);
+        
+        c1.classifyAsSimple();
+        assertTrue(c1.getComplexity()==ClaimComplexity.SIMPLE);
+        
+        c1.classifyAsComplex();
+        assertTrue(c1.getComplexity()==ClaimComplexity.COMPLEX);
+        
+    }
+    
      @Test
      public void getUnclassified() {
          //add this user to the users

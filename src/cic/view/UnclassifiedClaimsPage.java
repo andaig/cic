@@ -23,6 +23,7 @@ public class UnclassifiedClaimsPage extends CicPageWithMenu {
     
     DefaultTableModel model;
     DefaultTableModel modelPrevious;
+    private Claim currentClaim;
     /**
      * Creates new form UnclassifiedClaimsPage
      */
@@ -44,7 +45,9 @@ public class UnclassifiedClaimsPage extends CicPageWithMenu {
          cellSelectionModel.addListSelectionListener(
                  new ListSelectionListener() {
                    public void valueChanged(ListSelectionEvent e) {
-                       
+                        int index=ClaimsTable.getSelectedRow();
+        
+                       currentClaim=claims.get(index);
                        updateLowerPart();
       }
 
@@ -119,8 +122,18 @@ public class UnclassifiedClaimsPage extends CicPageWithMenu {
         jScrollPane2.setViewportView(previousHistoryTable);
 
         SimpleButton.setText("Mark as simple");
+        SimpleButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SimpleButtonActionPerformed(evt);
+            }
+        });
 
         ComplexButton.setText("Mark as complex");
+        ComplexButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComplexButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -171,6 +184,21 @@ public class UnclassifiedClaimsPage extends CicPageWithMenu {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void SimpleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SimpleButtonActionPerformed
+        // TODO add your handling code here:
+        this.currentClaim.classifyAsSimple();
+        UnclassifiedClaimsPage newPage=new UnclassifiedClaimsPage();
+        newPage.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_SimpleButtonActionPerformed
+
+    private void ComplexButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComplexButtonActionPerformed
+        this.currentClaim.classifyAsComplex();
+        UnclassifiedClaimsPage newPage=new UnclassifiedClaimsPage();
+        newPage.setVisible(true);
+        this.dispose();        // TODO add your handling code here:
+    }//GEN-LAST:event_ComplexButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -209,8 +237,7 @@ public class UnclassifiedClaimsPage extends CicPageWithMenu {
     private void updateLowerPart(){
         
         //update labels
-        int index=this.ClaimsTable.getSelectedRow();
-        Claim c=this.claims.get(index);
+       Claim c=currentClaim;
         this.IdLabel.setText(c.getId().toString());
         this.DescriptionLabel.setText(c.getDescription());
         

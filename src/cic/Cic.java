@@ -38,12 +38,14 @@ public class Cic {
          
          
          //create claims
+         Claim claim0=new Claim(us.getSsn(), "desc", 9.0, 13.0);
          Claim claim1=new Claim(us.getSsn(), "desc", 10.0, 15.0);
          Claim claim2=new Claim(us.getSsn(), "desc", 12.0, 17.0);
          Claim claim3=new Claim(us.getSsn(), "desc", 14.0, 19.0);
          
          //add claims      
          CClaimManager claimController=CClaimManager.getInstance();
+         claimController.registerClaim(us.getSsn(), claim0);
          claimController.registerClaim(us.getSsn(), claim1);
          claimController.registerClaim(us.getSsn(), claim2);
          claimController.registerClaim(us.getSsn(), claim3);

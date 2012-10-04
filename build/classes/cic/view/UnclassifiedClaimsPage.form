@@ -197,11 +197,17 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Mark as simple"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SimpleButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="ComplexButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Mark as complex"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ComplexButtonActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
