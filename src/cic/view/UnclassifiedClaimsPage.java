@@ -7,17 +7,22 @@ package cic.view;
 import cic.controller.CClaimManager;
 import cic.entity.Claim;
 import java.util.ArrayList;
+import javax.swing.ListSelectionModel;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author alfredo
  */
-public class UnclassifiedClaimsPage extends javax.swing.JFrame {
+public class UnclassifiedClaimsPage extends CicPageWithMenu {
 
     
     private ArrayList<Claim> claims;
+    
     DefaultTableModel model;
+    DefaultTableModel modelPrevious;
     /**
      * Creates new form UnclassifiedClaimsPage
      */
@@ -26,10 +31,24 @@ public class UnclassifiedClaimsPage extends javax.swing.JFrame {
         CClaimManager contr = CClaimManager.getInstance();
         claims=contr.getUnclassifiedClaims();
         model=(DefaultTableModel)this.ClaimsTable.getModel();
+        modelPrevious=(DefaultTableModel)this.previousHistoryTable.getModel();
+        
         for(Claim claim:this.claims){
             model.addRow(new Object[]{claim.getId().toString(), claim.getOwnerSsn(), claim.getDescription()});
-        
         }
+        
+        
+         ListSelectionModel cellSelectionModel = this.ClaimsTable.getSelectionModel();
+         cellSelectionModel.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+         
+         cellSelectionModel.addListSelectionListener(
+                 new ListSelectionListener() {
+                   public void valueChanged(ListSelectionEvent e) {
+                       
+                       updateLowerPart();
+      }
+
+    });
         
     }
 
@@ -45,9 +64,13 @@ public class UnclassifiedClaimsPage extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         ClaimsTable = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        IdLabel = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        DescriptionLabel = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        previousHistoryTable = new javax.swing.JTable();
+        SimpleButton = new javax.swing.JButton();
+        ComplexButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -69,13 +92,35 @@ public class UnclassifiedClaimsPage extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(ClaimsTable);
 
-        jLabel1.setText("jLabel1");
+        jLabel1.setText("ID");
 
-        jLabel2.setText("jLabel2");
+        IdLabel.setText("-------------------------");
 
-        jLabel3.setText("jLabel3");
+        jLabel3.setText("Description");
 
-        jLabel4.setText("jLabel4");
+        DescriptionLabel.setText("-------------------------");
+
+        previousHistoryTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Id", "Description", "Cost Of Damage", "Price Of car", "Complexity"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(previousHistoryTable);
+
+        SimpleButton.setText("Mark as simple");
+
+        ComplexButton.setText("Mark as complex");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -84,16 +129,23 @@ public class UnclassifiedClaimsPage extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(53, 53, 53)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel4))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel1)
-                            .addGap(90, 90, 90)
-                            .addComponent(jLabel2))))
-                .addGap(0, 20, Short.MAX_VALUE))
+                            .addComponent(jLabel1))
+                        .addGap(45, 45, 45)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(IdLabel)
+                            .addComponent(DescriptionLabel))))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 514, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(68, 68, 68)
+                .addComponent(SimpleButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(ComplexButton)
+                .addGap(61, 61, 61))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -102,12 +154,18 @@ public class UnclassifiedClaimsPage extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jLabel2))
+                    .addComponent(IdLabel))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jLabel4))
-                .addGap(0, 91, Short.MAX_VALUE))
+                    .addComponent(DescriptionLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(SimpleButton)
+                    .addComponent(ComplexButton))
+                .addContainerGap())
         );
 
         pack();
@@ -147,12 +205,43 @@ public class UnclassifiedClaimsPage extends javax.swing.JFrame {
             }
         });
     }
+    
+    private void updateLowerPart(){
+        
+        //update labels
+        int index=this.ClaimsTable.getSelectedRow();
+        Claim c=this.claims.get(index);
+        this.IdLabel.setText(c.getId().toString());
+        this.DescriptionLabel.setText(c.getDescription());
+        
+        
+        
+        //update prev history table
+        while (modelPrevious.getRowCount()>0){
+            modelPrevious.removeRow(0);
+        }
+        ArrayList<Claim> prevClaims=CClaimManager.getInstance().getHistoryOfUser(c.getOwnerSsn());
+        
+        
+        for(Claim claim:prevClaims){
+            modelPrevious.addRow(new Object[]{claim.getId().toString(), claim.getDescription(),
+                claim.getCostOfDamage(), claim.getPriceOfCar(),claim.getComplexity().toString() });
+        }
+        
+        
+        
+        
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable ClaimsTable;
+    private javax.swing.JButton ComplexButton;
+    private javax.swing.JLabel DescriptionLabel;
+    private javax.swing.JLabel IdLabel;
+    private javax.swing.JButton SimpleButton;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable previousHistoryTable;
     // End of variables declaration//GEN-END:variables
 }

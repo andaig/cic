@@ -48,6 +48,11 @@ public class Cic {
          claimController.registerClaim(us.getSsn(), claim2);
          claimController.registerClaim(us.getSsn(), claim3);
          
+         claim2.classifyAsComplex();
+         claim3.classifyAsSimple();
+         claim2.setOverallCompleted();
+         claim3.setOverallCompleted();
+         
          
          //classify two of these claims
          //claim1.classifyAsSimple();

@@ -30,4 +30,8 @@ public class CUserManager {
         this.users.add(u);
     }
 
+    public void removeUser(User us) {
+        this.users.remove(us);
+    }
+
 }

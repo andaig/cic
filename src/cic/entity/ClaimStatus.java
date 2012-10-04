@@ -9,6 +9,6 @@ package cic.entity;
  * @author alfredo
  */
 public enum ClaimStatus {
-    NOT_CLASSIFIED,SIMPLE,COMPLEX
+    COMPLETED, NOT_COMPLETED
     
 }

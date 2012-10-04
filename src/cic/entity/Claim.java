@@ -12,6 +12,13 @@ public class Claim {
 
   private Integer id;
   private String ownerSsn;
+  private String description;
+  private Double costOfDamage;
+  private Double priceOfCar;
+  private ClaimComplexity complexity=ClaimComplexity.NOT_CLASSIFIED;
+  
+  private ClaimStatus overallStatus=ClaimStatus.NOT_COMPLETED;
+
 
     public Integer getId() {
         return id;
@@ -32,10 +39,18 @@ public class Claim {
     public Double getPriceOfCar() {
         return priceOfCar;
     }
-  private String description;
-  private Double costOfDamage;
-  private Double priceOfCar;
-  private ClaimStatus status=ClaimStatus.NOT_CLASSIFIED;
+    public ClaimComplexity getComplexity(){
+        return this.complexity;
+    
+    }
+  
+    public ClaimStatus getOverallStatus() {
+        return overallStatus;
+    }
+    public void setOverallCompleted(){
+        this.overallStatus= ClaimStatus.COMPLETED;
+    }
+  
   
   public static Integer n=0;
   
@@ -49,14 +64,14 @@ public class Claim {
     }
     
     public void classifyAsSimple(){
-        this.status=ClaimStatus.SIMPLE;
+        this.complexity=ClaimComplexity.SIMPLE;
     }
     
     public void classifyAsComplex(){
-        this.status=ClaimStatus.COMPLEX;
+        this.complexity=ClaimComplexity.COMPLEX;
     }
-    public ClaimStatus getStatus(){
-        return this.status;
+    public ClaimComplexity getStatus(){
+        return this.complexity;
     }
     
     public static Integer getNextId(){
