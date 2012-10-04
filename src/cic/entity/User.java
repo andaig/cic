@@ -16,6 +16,11 @@ public class User {
     
     public User(){
     }
+    public User(String s, String f, String l){
+        this.ssn=s;
+        this.fname=f;
+        this.lname=l;
+    }
     
     public String getSsn(){
         return this.ssn;

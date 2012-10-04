@@ -5,6 +5,7 @@
 package cic.controller;
 
 import cic.entity.Claim;
+import cic.entity.ClaimStatus;
 import java.util.ArrayList;
 
 /**
@@ -32,5 +33,15 @@ public class CClaimManager {
      claims.add(claim);
      return true;
  }
+
+    public ArrayList<Claim> getUnclassifiedClaims() {
+        ArrayList<Claim> ret= new ArrayList<>();
+        for(Claim cl:this.claims ){
+            if(cl.getStatus()==ClaimStatus.NOT_CLASSIFIED){
+                ret.add(cl);
+            }
+        }
+        return ret;
+    }
     
 }

@@ -4,6 +4,10 @@
  */
 package cic;
 
+import cic.controller.CClaimManager;
+import cic.controller.CUserManager;
+import cic.entity.Claim;
+import cic.entity.User;
 import cic.view.LoginPage;
 
 /**
@@ -20,7 +24,37 @@ public class Cic {
         
         
         LoginPage logpg=new LoginPage();
-        logpg.setVisible(true);
         
+        logpg.setVisible(true);
+        populate();
     }
+    
+    public static void populate(){
+        
+        //add this user to the users
+         User us=new User("9999", "Alfredo", "Scaccialepre");
+         CUserManager userController=CUserManager.getInstance();
+         userController.addUser(us);
+         
+         
+         //create claims
+         Claim claim1=new Claim(us.getSsn(), "desc", 10.0, 15.0);
+         Claim claim2=new Claim(us.getSsn(), "desc", 12.0, 17.0);
+         Claim claim3=new Claim(us.getSsn(), "desc", 14.0, 19.0);
+         
+         //add claims      
+         CClaimManager claimController=CClaimManager.getInstance();
+         claimController.registerClaim(us.getSsn(), claim1);
+         claimController.registerClaim(us.getSsn(), claim2);
+         claimController.registerClaim(us.getSsn(), claim3);
+         
+         
+         //classify two of these claims
+         //claim1.classifyAsSimple();
+         //claim2.classifyAsComplex();
+         
+         
+    
+    }
+   
 }
