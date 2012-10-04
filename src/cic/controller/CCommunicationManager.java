@@ -10,7 +10,7 @@ import cic.entity.User;
  *
  * @author alfredo
  */
-public class CMailManager {
+public class CCommunicationManager {
 
     public Boolean sendNotificationNotInsured(String email) {
         
@@ -23,6 +23,12 @@ public class CMailManager {
         if(email.compareTo("invalidEmail")==0){
             return false;
         }
+        return true;
+    }
+
+    public Boolean sendSms(String number, String text) {
+        
+        
         return true;
     }
     

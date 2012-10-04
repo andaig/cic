@@ -4,7 +4,7 @@
  */
 package cicTest;
 
-import cic.controller.CMailManager;
+import cic.controller.CCommunicationManager;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -21,7 +21,7 @@ public class SendNotInsuredTest {
     //
     @Test
     public void sendNotificationNotInsuredSuccessful() {
-        CMailManager controller=new CMailManager();
+        CCommunicationManager controller=new CCommunicationManager();
         String ssn="1234567890";
         Boolean res=controller.sendNotificationNotInsured(ssn);
         assertTrue(res);
@@ -29,7 +29,7 @@ public class SendNotInsuredTest {
     
     @Test
     public void sendNotificationNotInsuredUnsuccessful() {
-        CMailManager controller=new CMailManager();
+        CCommunicationManager controller=new CCommunicationManager();
         String email="invalidEmail";
         Boolean res=controller.sendNotificationNotInsured(email);
         assertFalse(res);

@@ -11,7 +11,9 @@ package cic.entity;
 public class Employee {
     protected String username;
     protected String password;
+    private Role role;
     
+            
     public Employee(){
     }
         
@@ -27,6 +29,9 @@ public class Employee {
         return this.password;
     }
     
+    public Role getRole(){
+        return role;
+    }
     
     //simulates interaction with db
     public void load(String username){
@@ -35,11 +40,18 @@ public class Employee {
         if(username.compareTo("employee")==0){
         
             this.username="employee";
-            this.password="password";           
+            this.password="password";     
+            this.role=Role.EMPLOYEE;
+        }
+        else if (username.compareTo("cha")==0){
+            this.username="cha";
+            this.password="password";     
+            this.role=Role.CHA;
+        
         }
         else {
-            this.username="";
-            this.password="";
+            this.username=null;
+            this.password=null;
             
         }
 

@@ -121,7 +121,7 @@ public class LoginPage extends CicPage {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        CAuthentication controller=new CAuthentication();
+        CAuthentication controller= CAuthentication.getInstance();
         if(controller.authenticate(this.UsernameTextField.getText(), this.PasswordTextField.getText())){
             
             CicPageWithMenu pwm=new CicPageWithMenu();

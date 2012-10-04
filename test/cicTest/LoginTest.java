@@ -24,7 +24,7 @@ public class LoginTest {
          
          String username="employee";
          String password = "password";
-         CAuthentication controller= new CAuthentication();
+         CAuthentication controller= CAuthentication.getInstance();
          Boolean isCorrect=controller.authenticate(username, password);
          assertTrue(isCorrect);
          
@@ -34,7 +34,7 @@ public class LoginTest {
          
          String username="asdfghjk";
          String password = "qwertyu";
-         CAuthentication controller= new CAuthentication();
+         CAuthentication controller= CAuthentication.getInstance();
          Boolean isCorrect=controller.authenticate(username, password);
          assertFalse(isCorrect);
          

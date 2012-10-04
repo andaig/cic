@@ -7,6 +7,7 @@ package cic.controller;
 import cic.entity.Claim;
 import cic.entity.ClaimComplexity;
 import cic.entity.ClaimStatus;
+import cic.entity.SimpleClaim;
 import java.util.ArrayList;
 
 /**
@@ -65,6 +66,19 @@ public class CClaimManager {
 
     public void removeClaim(Claim c) {
         this.claims.remove(c);
+    }
+
+    public Boolean phoneGarageForSimpleClaim(SimpleClaim sc) {
+         String number="0767155358";
+         String text = sc.generateGarageText();
+         
+         CCommunicationManager comMan= new CCommunicationManager();
+         Boolean smsSuccess=comMan.sendSms(number, text);
+         if(smsSuccess){
+            sc.setPhoneGarageCompleted();
+         }        
+         
+         return smsSuccess;
     }
     
 }

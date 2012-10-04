@@ -6,7 +6,7 @@ package cic.view;
 
 import cic.controller.CClaimManager;
 import cic.controller.CInsuredCheck;
-import cic.controller.CMailManager;
+import cic.controller.CCommunicationManager;
 import cic.entity.Claim;
 import cic.entity.User;
 
@@ -187,7 +187,7 @@ public class RegisterClaimPage extends CicPageWithMenu {
 
     private void sendNotificationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sendNotificationButtonActionPerformed
             // TODO add your handling code here:
-        CMailManager controller = new CMailManager();
+        CCommunicationManager controller = new CCommunicationManager();
         if(controller.sendNotificationNotInsured(emailTextField.getText())){
             sendNotificationButton.setEnabled(false);
         }
