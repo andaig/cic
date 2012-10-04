@@ -69,7 +69,9 @@ public class CicPageWithMenu extends CicPage {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        // TODO add your handling code here:
+    RegisterClaimPage regPag= new RegisterClaimPage();
+    regPag.setVisible(true);        // TODO add your handling code here:
+    this.dispose();
         
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 

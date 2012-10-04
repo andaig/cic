@@ -123,8 +123,9 @@ public class LoginPage extends CicPage {
         // TODO add your handling code here:
         CAuthentication controller=new CAuthentication();
         if(controller.authenticate(this.UsernameTextField.getText(), this.PasswordTextField.getText())){
-            RegisterClaimPage regPag= new RegisterClaimPage();
-            regPag.setVisible(true);
+            
+            CicPageWithMenu pwm=new CicPageWithMenu();
+            pwm.setVisible(true);
             this.dispose();
         }
         else{

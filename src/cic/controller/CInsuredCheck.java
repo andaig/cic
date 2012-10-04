@@ -4,28 +4,28 @@
  */
 package cic.controller;
 
-import cic.entity.Employee;
-
+import cic.entity.User;
 
 /**
  *
  * @author alfredo
  */
-public class CAuthentication {
+public class CInsuredCheck {
 
-    public Boolean authenticate(String username, String password) {
-        Employee emp;
-        emp = new Employee();
-        emp.load(username);
-        if(emp.getUsername().compareTo(username)==0){
+
+
+    public Boolean checkInsured(String ssn) {
+        User us;
+        us = new User();
+        us.load(ssn);
+        
+        if(us.getSsn().compareTo(ssn)==0){
             
             return true;           
         }
         else {
             return false;
         }
-        
-
     }
     
 }

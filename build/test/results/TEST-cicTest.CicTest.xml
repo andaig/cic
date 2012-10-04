@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="alfredo-Aspire-2930" name="cicTest.CicTest" tests="1" time="0.091" timestamp="2012-10-03T17:46:38">
+<testsuite errors="0" failures="0" hostname="alfredo-Aspire-2930" name="cicTest.CicTest" tests="1" time="0.413" timestamp="2012-10-04T10:16:42">
   <properties>
     <property name="netbeans.autoupdate.country" value="US" />
     <property name="nb.wait.for.caches" value="true" />
@@ -41,7 +41,7 @@
     <property name="copylibs.rebase" value="true" />
     <property name="manifest.available+main.class" value="true" />
     <property name="libs.swing-layout.maven-pom" value="" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner cicTest.CicTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/home/alfredo/Desktop/cic/build/test/results/TEST-cicTest.CicTest.xml crashfile=/home/alfredo/Desktop/cic/build/junitvmwatcher9103578364272572828.properties propsfile=/home/alfredo/Desktop/cic/build/junit2218209397777160337.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner cicTest.CicTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/home/alfredo/Desktop/cic/build/test/results/TEST-cicTest.CicTest.xml crashfile=/home/alfredo/Desktop/cic/build/junitvmwatcher1405832401840282081.properties propsfile=/home/alfredo/Desktop/cic/build/junit5164012017789342765.properties" />
     <property name="build.classes.dir" value="build/classes" />
     <property name="netbeans.accept_license_class" value="org.netbeans.license.AcceptLicense" />
     <property name="build.sysclasspath" value="ignore" />
@@ -81,7 +81,6 @@
     <property name="sun.java.launcher" value="SUN_STANDARD" />
     <property name="libs.junit.classpath" value="/home/alfredo/netbeans-7.2/java/modules/ext/junit-3.8.2.jar" />
     <property name="libs.jaxb.javadoc" value="/home/alfredo/netbeans-7.2/ide/docs/jaxb-api-doc.zip" />
-    <property name="org.openide.awt.SwingBrowserImpl.do-not-block-awt" value="false" />
     <property name="ant.home" value="/home/alfredo/netbeans-7.2/java/ant" />
     <property name="libs.junit_4.src" value="/home/alfredo/netbeans-7.2/java/docs/junit-4.10-sources.jar" />
     <property name="libs.testng.classpath" value="/home/alfredo/netbeans-7.2/platform/modules/ext/testng-6.5.1-dist.jar" />
@@ -291,7 +290,7 @@
     <property name="platform.active" value="default_platform" />
     <property name="awt.toolkit" value="sun.awt.X11.XToolkit" />
   </properties>
-  <testcase classname="cicTest.CicTest" name="testMain" time="0.003" />
+  <testcase classname="cicTest.CicTest" name="testMain" time="0.326" />
   <system-out><![CDATA[main
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>

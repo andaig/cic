@@ -4,17 +4,30 @@
  */
 package cic.view;
 
+import cic.controller.CClaimManager;
+import cic.controller.CInsuredCheck;
+import cic.controller.CMailManager;
+import cic.entity.Claim;
+import cic.entity.User;
+
 /**
  *
  * @author alfredo
  */
 public class RegisterClaimPage extends CicPageWithMenu {
 
+    private User currentUser;
+    
     /**
      * Creates new form RegisterClaimPage
      */
     public RegisterClaimPage() {
         initComponents();
+        sendNotificationButton.setVisible(false);
+        notInsuredLabel.setVisible(false);
+        fnameTextField.setEditable(false);
+        lnameTextField.setEditable(false);
+        emailTextField.setVisible(false);
     }
 
     /**
@@ -26,48 +39,179 @@ public class RegisterClaimPage extends CicPageWithMenu {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        fnameTextField = new javax.swing.JTextField();
+        lnameTextField = new javax.swing.JTextField();
+        descriptionTextField = new javax.swing.JTextField();
+        checkInsuranceButton = new javax.swing.JButton();
+        sendNotificationButton = new javax.swing.JButton();
+        notInsuredLabel = new javax.swing.JLabel();
+        ssnTextField = new javax.swing.JTextField();
+        emailTextField = new javax.swing.JTextField();
+        RegisterButton = new javax.swing.JButton();
+        priceOfCarTextField = new javax.swing.JTextField();
+        costOfDamageTextField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTextField1.setText("jTextField1");
+        fnameTextField.setText("first name");
 
-        jTextField2.setText("jTextField2");
+        lnameTextField.setText("last name");
 
-        jTextField3.setText("jTextField3");
+        descriptionTextField.setText("description");
+
+        checkInsuranceButton.setText("Check insurance");
+        checkInsuranceButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkInsuranceButtonActionPerformed(evt);
+            }
+        });
+
+        sendNotificationButton.setText("send");
+        sendNotificationButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sendNotificationButtonActionPerformed(evt);
+            }
+        });
+
+        notInsuredLabel.setText("The user is not insured. Send him this notification");
+
+        ssnTextField.setText("ssn");
+
+        emailTextField.setText("email address");
+
+        RegisterButton.setText("Register");
+        RegisterButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegisterButtonActionPerformed(evt);
+            }
+        });
+
+        priceOfCarTextField.setText("price of Car");
+
+        costOfDamageTextField.setText("cost of damage");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(33, 33, 33)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(ssnTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(checkInsuranceButton))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(notInsuredLabel)
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(21, 21, 21))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 130, Short.MAX_VALUE)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(57, 57, 57))))
+                        .addComponent(emailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(61, 61, 61)
+                        .addComponent(sendNotificationButton)
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(descriptionTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
+                            .addComponent(fnameTextField, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(34, 34, 34)
+                                .addComponent(lnameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(priceOfCarTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(costOfDamageTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(RegisterButton, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap())))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(54, 54, 54)
+                .addGap(53, 53, 53)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(46, 46, 46)
-                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(146, Short.MAX_VALUE))
+                    .addComponent(checkInsuranceButton)
+                    .addComponent(ssnTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(notInsuredLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(sendNotificationButton)
+                    .addComponent(emailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(fnameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lnameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(descriptionTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(priceOfCarTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(costOfDamageTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(35, 35, 35))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(RegisterButton)
+                        .addContainerGap())))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void checkInsuranceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkInsuranceButtonActionPerformed
+        // TODO add your handling code here:
+        CInsuredCheck controller= new CInsuredCheck();
+        Boolean res=controller.checkInsured(ssnTextField.getText());
+        User us=new User();
+        us.load(ssnTextField.getText());
+        
+        if(!res){
+            sendNotificationButton.setVisible(true);
+            notInsuredLabel.setVisible(true);
+            emailTextField.setVisible(true);
+        }
+        else{
+            fnameTextField.setText(us.getFname());
+            lnameTextField.setText(us.getLname());
+            currentUser=us;
+        }
+        
+        
+        
+    }//GEN-LAST:event_checkInsuranceButtonActionPerformed
+
+    private void sendNotificationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sendNotificationButtonActionPerformed
+            // TODO add your handling code here:
+        CMailManager controller = new CMailManager();
+        if(controller.sendNotificationNotInsured(emailTextField.getText())){
+            sendNotificationButton.setEnabled(false);
+        }
+        
+        
+    }//GEN-LAST:event_sendNotificationButtonActionPerformed
+
+    private void RegisterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterButtonActionPerformed
+        // TODO add your handling code here:
+        
+        CClaimManager controller=CClaimManager.getInstance();
+        Claim claim=new Claim(currentUser.getSsn(), descriptionTextField.getText(),
+                Double.parseDouble(costOfDamageTextField.getText()) ,
+                Double.parseDouble(priceOfCarTextField.getText()));
+        
+        if(controller.registerClaim(currentUser.getSsn(), claim)){
+            CicPageWithMenu pwm=new CicPageWithMenu();
+            pwm.setVisible(true);
+            this.dispose();
+            
+        }
+        
+        
+    }//GEN-LAST:event_RegisterButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -104,8 +248,16 @@ public class RegisterClaimPage extends CicPageWithMenu {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JButton RegisterButton;
+    private javax.swing.JButton checkInsuranceButton;
+    private javax.swing.JTextField costOfDamageTextField;
+    private javax.swing.JTextField descriptionTextField;
+    private javax.swing.JTextField emailTextField;
+    private javax.swing.JTextField fnameTextField;
+    private javax.swing.JTextField lnameTextField;
+    private javax.swing.JLabel notInsuredLabel;
+    private javax.swing.JTextField priceOfCarTextField;
+    private javax.swing.JButton sendNotificationButton;
+    private javax.swing.JTextField ssnTextField;
     // End of variables declaration//GEN-END:variables
 }
