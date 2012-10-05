@@ -26,6 +26,21 @@ public class CUserManager {
         return instance;
     }
     
+    public User search(String ssn){
+        User res=new User("","","");
+        
+        for (User u: this.users){
+            
+            
+            if(u.getSsn().compareTo(ssn)==0){
+                res=u;     
+                
+            }
+        }
+        return res;
+    
+    }
+    
     public void addUser(User u){
         this.users.add(u);
     }

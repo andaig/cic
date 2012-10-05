@@ -4,9 +4,12 @@
  */
 package cicTest;
 
+import cic.Cic;
 import cic.controller.CInsuredCheck;
+import org.junit.After;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.Before;
 
 /**
  *
@@ -19,15 +22,25 @@ public class CheckInsuredTest {
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:
     //
+    @Before
+    public void setUp(){
+        Cic.populate();
+    }
+    
+    @After
+    public void clean(){
+        Cic.clean();
+    }
+    
      @Test
      public void checkInsuredSuccessful() {
-         String ssn="1234567890";
+         String ssn=Cic.user.getSsn();
          CInsuredCheck controller= new CInsuredCheck();
          Boolean isInsured=controller.checkInsured(ssn);
          assertTrue(isInsured);
      
      }
-     
+
      
      @Test
      public void checkInsuredUnsuccessful() {

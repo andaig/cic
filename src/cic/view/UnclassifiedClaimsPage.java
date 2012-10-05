@@ -22,7 +22,7 @@ public class UnclassifiedClaimsPage extends CicPageWithMenu {
     private ArrayList<Claim> claims;
     
     DefaultTableModel model;
-    DefaultTableModel modelPrevious;
+    
     private Claim currentClaim;
     /**
      * Creates new form UnclassifiedClaimsPage
@@ -32,7 +32,7 @@ public class UnclassifiedClaimsPage extends CicPageWithMenu {
         CClaimManager contr = CClaimManager.getInstance();
         claims=contr.getUnclassifiedClaims();
         model=(DefaultTableModel)this.ClaimsTable.getModel();
-        modelPrevious=(DefaultTableModel)this.previousHistoryTable.getModel();
+        
         
         for(Claim claim:this.claims){
             model.addRow(new Object[]{claim.getId().toString(), claim.getOwnerSsn(), claim.getDescription()});
@@ -70,10 +70,9 @@ public class UnclassifiedClaimsPage extends CicPageWithMenu {
         IdLabel = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         DescriptionLabel = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        previousHistoryTable = new javax.swing.JTable();
         SimpleButton = new javax.swing.JButton();
         ComplexButton = new javax.swing.JButton();
+        historyJPanel = new cic.view.HistoryJPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -103,24 +102,6 @@ public class UnclassifiedClaimsPage extends CicPageWithMenu {
 
         DescriptionLabel.setText("-------------------------");
 
-        previousHistoryTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Id", "Description", "Cost Of Damage", "Price Of car", "Complexity"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane2.setViewportView(previousHistoryTable);
-
         SimpleButton.setText("Mark as simple");
         SimpleButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -148,8 +129,7 @@ public class UnclassifiedClaimsPage extends CicPageWithMenu {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(IdLabel)
                     .addComponent(DescriptionLabel))
-                .addGap(0, 183, Short.MAX_VALUE))
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 514, Short.MAX_VALUE)
+                .addGap(0, 247, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(68, 68, 68)
                 .addComponent(SimpleButton)
@@ -158,8 +138,10 @@ public class UnclassifiedClaimsPage extends CicPageWithMenu {
                 .addGap(61, 61, 61))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(historyJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 529, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 515, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -174,9 +156,9 @@ public class UnclassifiedClaimsPage extends CicPageWithMenu {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(DescriptionLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(19, 19, 19)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addComponent(historyJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(SimpleButton)
                     .addComponent(ComplexButton))
@@ -240,23 +222,13 @@ public class UnclassifiedClaimsPage extends CicPageWithMenu {
         
         //update labels
        Claim c=currentClaim;
-        this.IdLabel.setText(c.getId().toString());
-        this.DescriptionLabel.setText(c.getDescription());
+       this.IdLabel.setText(c.getId().toString());
+       this.DescriptionLabel.setText(c.getDescription());
+       this.historyJPanel.updateHistoryTable(currentClaim);
         
         
         
-        //update prev history table
-        while (modelPrevious.getRowCount()>0){
-            modelPrevious.removeRow(0);
-        }
-        ArrayList<Claim> prevClaims=CClaimManager.getInstance().getHistoryOfUser(c.getOwnerSsn());
-        
-        
-        for(Claim claim:prevClaims){
-            modelPrevious.addRow(new Object[]{claim.getId().toString(), claim.getDescription(),
-                claim.getCostOfDamage(), claim.getPriceOfCar(),claim.getComplexity().toString() });
-        }
-        
+      
         
         
         
@@ -267,10 +239,9 @@ public class UnclassifiedClaimsPage extends CicPageWithMenu {
     private javax.swing.JLabel DescriptionLabel;
     private javax.swing.JLabel IdLabel;
     private javax.swing.JButton SimpleButton;
+    private cic.view.HistoryJPanel historyJPanel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable previousHistoryTable;
     // End of variables declaration//GEN-END:variables
 }

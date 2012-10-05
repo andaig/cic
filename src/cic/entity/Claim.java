@@ -20,6 +20,11 @@ public class Claim {
   
   protected ClaimStatus overallStatus=ClaimStatus.NOT_COMPLETED;
   protected Decision finalDecision=Decision.NOT_TAKEN;
+    
+  private ClaimStatus CheckInsuranceStatus=ClaimStatus.NOT_COMPLETED;
+  private ClaimStatus PhoneGarageStatus=ClaimStatus.NOT_COMPLETED;
+  private ClaimStatus CheckHistoryStatus=ClaimStatus.NOT_COMPLETED;
+  
 
 
     public Integer getId() {
@@ -97,5 +102,46 @@ public class Claim {
     public Decision getFinalDecision() {
         return this.finalDecision;
     }
+    
+    
+    
+    
+    
+    public ClaimStatus getPhoneGarageStatus() {
+        return PhoneGarageStatus;
+    }
+
+    public ClaimStatus getCheckInsuranceStatus() {
+        return CheckInsuranceStatus;
+    }
+     public ClaimStatus getCheckHistoryStatus() {
+        return CheckHistoryStatus;
+    }
+   
+
+    public String generateGarageText() {
+        String smsText="Request of intervention for car belonging to "+
+                this.getOwnerSsn() + " with these details:\n" + 
+                this.getDescription();
+        
+        return smsText;
+    }
+
+    public void setPhoneGarageCompleted() {
+        this.PhoneGarageStatus= ClaimStatus.COMPLETED;
+    }
+
+    public void setCheckInsuranceCompleted() {
+        this.CheckInsuranceStatus = ClaimStatus.COMPLETED;
+        
+    }
+
+    public void setCheckHistoryCompleted() {
+        this.CheckHistoryStatus = ClaimStatus.COMPLETED;
+    }
+
+   
+
+    
     
 }

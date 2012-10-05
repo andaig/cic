@@ -8,7 +8,7 @@ import cic.entity.Claim;
 import cic.entity.ClaimComplexity;
 import cic.entity.ClaimStatus;
 import cic.entity.Decision;
-import cic.entity.SimpleClaim;
+
 import cic.entity.User;
 import java.util.ArrayList;
 
@@ -70,7 +70,14 @@ public class CClaimManager {
         this.claims.remove(c);
     }
 
-    public Boolean phoneGarageForSimpleClaim(SimpleClaim sc) {
+    
+    public void CheckHistory(Claim c){
+        
+        c.setCheckHistoryCompleted();
+        updateClaimPreliminaryStatus(c);
+    
+    }
+    public Boolean phoneGarage(Claim sc) {
          String number="0767155358";
          String text = sc.generateGarageText();
          
@@ -79,8 +86,32 @@ public class CClaimManager {
          if(smsSuccess){
             sc.setPhoneGarageCompleted();
          }        
+         updateClaimPreliminaryStatus(sc);
          
          return smsSuccess;
+    }
+   
+    
+    public void updateClaimPreliminaryStatus(Claim c){
+        //Simple claim
+        if(c.getComplexity()==ClaimComplexity.SIMPLE){
+            if(c.getPhoneGarageStatus() == ClaimStatus.COMPLETED &&
+                    c.getCheckInsuranceStatus() == ClaimStatus.COMPLETED){
+                c.setPreliminaryCompleted();
+            }
+                
+        }
+        
+        //Complex claim
+        if(c.getComplexity()==ClaimComplexity.COMPLEX){
+            if(c.getPhoneGarageStatus() == ClaimStatus.COMPLETED &&
+                    c.getCheckInsuranceStatus() == ClaimStatus.COMPLETED &&
+                    c.getCheckHistoryStatus()== ClaimStatus.COMPLETED){
+                
+                c.setPreliminaryCompleted();
+                
+            }
+        }
     }
 
     public ArrayList<Claim> getPreliminaryCompleteClaims() {
@@ -95,11 +126,49 @@ public class CClaimManager {
     }
 
     public Boolean decide(Claim sc, Decision decision, String decisionText) {
-        sc.decide(Decision.NOK);
+        sc.decide(decision);
         CCommunicationManager com=new CCommunicationManager();
         User u=new User();
         u.load(sc.getOwnerSsn());
+        
         return com.sendDecision(decisionText, u.getEmail());
     }
+
+    public ArrayList<Claim> getSimpleClaimsNotPreliminaryComplete() {
+        ArrayList<Claim> ret=new ArrayList<>();
+        for(Claim c:this.claims){
+            if(c.getPreliminaryStatus()==ClaimStatus.NOT_COMPLETED &&
+                    c.getComplexity() == ClaimComplexity.SIMPLE){
+                ret.add(c);
+            }
+                
+        
+        }
+        return ret;
+    }
+
+    public ArrayList<Claim> getComplexClaimsNotPreliminaryComplete() {
+        ArrayList<Claim> ret=new ArrayList<>();
+        for(Claim c:this.claims){
+            if(c.getPreliminaryStatus()==ClaimStatus.NOT_COMPLETED &&
+                    c.getComplexity() == ClaimComplexity.COMPLEX){
+                ret.add(c);
+            }
+                
+        
+        }
+        return ret;
+    }
+
+    public ArrayList<Claim> getClassifiedClaimsNotPreliminaryComplete() {
+        ArrayList<Claim> ret=new ArrayList<>();
+        
+        ret.addAll(this.getSimpleClaimsNotPreliminaryComplete());
+        ret.addAll(this.getComplexClaimsNotPreliminaryComplete());
+              
+        return ret;
+    }
+
+    
     
 }

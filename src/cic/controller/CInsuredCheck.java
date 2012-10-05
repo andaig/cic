@@ -4,6 +4,7 @@
  */
 package cic.controller;
 
+import cic.entity.Claim;
 import cic.entity.User;
 
 /**
@@ -26,6 +27,20 @@ public class CInsuredCheck {
         else {
             return false;
         }
+        
     }
+    
+    public Boolean checkInsurance(Claim c) {
+       Boolean res=this.checkInsured(c.getOwnerSsn());
+       
+       if(res){
+           c.setCheckInsuranceCompleted();
+       }
+       CClaimManager.getInstance().updateClaimPreliminaryStatus(c);
+ 
+       
+       return res;
+    }
+    
     
 }

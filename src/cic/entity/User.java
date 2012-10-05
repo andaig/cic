@@ -4,6 +4,8 @@
  */
 package cic.entity;
 
+import cic.controller.CUserManager;
+
 /**
  *
  * @author alfredo
@@ -38,20 +40,12 @@ public class User {
     
       //simulates interaction with db
     public void load(String ssnArg){
-
-   
-        if(ssnArg.compareTo("1234567890")==0){
-        
-            this.ssn="1234567890";
-            this.fname="Alfredo";
-            this.lname="Scaccialepre";
-        }
-        else {
-            this.ssn="";
-            this.fname="";
-            this.lname="";
-                        
-        }
+         
+        CUserManager con=CUserManager.getInstance();
+        User x=con.search(ssnArg);
+        this.ssn=x.getSsn();
+        this.fname=x.getFname();
+        this.lname=x.getLname();
 
     }
     
