@@ -1,8 +1,9 @@
-Ciao Alfredo,
+******************************************
+README
+******************************************
 
-If you can see this, you have successfully cloned the repository
+1. How to compile?
+...
 
-
-cic===
-
-Car Insurance company - ID2207 - project
+2. How to run?
+...
