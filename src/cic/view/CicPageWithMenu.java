@@ -18,12 +18,22 @@ public class CicPageWithMenu extends CicPage {
      */
     public CicPageWithMenu() {
         initComponents();
+        
+        this.UsernameLabel.setText(CAuthentication.getInstance().getUsername());
+        
         CAuthentication auth=CAuthentication.getInstance();
         Role role=auth.getEmployeeRole();
         if(role==Role.EMPLOYEE){
             this.UnclassifiedClaimsMenuItem.setVisible(false);
-            this.ClassifiedClaimsMenuItem.setVisible(false);
+            
+            this.MakeDecisionMenuItem.setVisible(false);
         }
+        
+        if(role==Role.CHB){
+            
+            this.MakeDecisionMenuItem.setVisible(false);
+        }
+        
         
     }
 
@@ -36,9 +46,11 @@ public class CicPageWithMenu extends CicPage {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        LogoutButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        UsernameLabel = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
         RegisterClaimMenuItem = new javax.swing.JMenuItem();
         UnclassifiedClaimsMenuItem = new javax.swing.JMenuItem();
@@ -47,11 +59,19 @@ public class CicPageWithMenu extends CicPage {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        LogoutButton.setText("Logout");
+        LogoutButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LogoutButtonActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Logged as");
+
+        UsernameLabel.setText("------");
+
         jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
 
         jMenu3.setText("Actions");
 
@@ -95,11 +115,23 @@ public class CicPageWithMenu extends CicPage {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 190, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(UsernameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(LogoutButton))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 287, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(LogoutButton)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(UsernameLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(0, 262, Short.MAX_VALUE))
         );
 
         pack();
@@ -132,6 +164,13 @@ public class CicPageWithMenu extends CicPage {
         mkp.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_MakeDecisionMenuItemActionPerformed
+
+    private void LogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutButtonActionPerformed
+        // TODO add your handling code here:
+        LoginPage lp=new LoginPage();
+        lp.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_LogoutButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -169,11 +208,13 @@ public class CicPageWithMenu extends CicPage {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem ClassifiedClaimsMenuItem;
+    private javax.swing.JButton LogoutButton;
     private javax.swing.JMenuItem MakeDecisionMenuItem;
     private javax.swing.JMenuItem RegisterClaimMenuItem;
     private javax.swing.JMenuItem UnclassifiedClaimsMenuItem;
+    private javax.swing.JLabel UsernameLabel;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     // End of variables declaration//GEN-END:variables

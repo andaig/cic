@@ -17,6 +17,7 @@ public class CAuthentication {
     
     
     private static CAuthentication instance=null;
+    private String username;
     
     private CAuthentication(){
     
@@ -43,6 +44,7 @@ public class CAuthentication {
         emp.load(username);
         if(emp.getUsername().compareTo(username)==0){
             this.employee=emp;
+            this.username=username;
             return true;           
         }
         else {
@@ -50,6 +52,10 @@ public class CAuthentication {
         }
         
 
+    }
+
+    public String getUsername() {
+        return this.username;
     }
     
 }

@@ -49,6 +49,12 @@ public class Employee {
             this.role=Role.CHA;
         
         }
+        else if (username.compareTo("chb")==0){
+            this.username="chb";
+            this.password="password";     
+            this.role=Role.CHB;
+        
+        }
         else {
             this.username="";
             this.password="";
