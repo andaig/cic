@@ -5,8 +5,10 @@
 package cicTest;
 
 import cic.Cic;
+import cic.controller.CClaimManager;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Test;
 
 /**
  *
@@ -29,6 +31,17 @@ public class PaymentTest {
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:
     //
-    // @Test
-    // public void hello() {}
+    @Test
+    public void makeThePayment() {
+        
+        assertFalse(Cic.claim0.isPayed());
+        CClaimManager.getInstance().pay(Cic.claim0);
+        assertTrue(Cic.claim0.isPayed());
+        
+    
+    }
+    @Test
+    public void hello2() {
+    
+    }
 }
