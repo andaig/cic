@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="alfredo-Aspire-2930" name="cicTest.DecideTest" tests="2" time="0.202" timestamp="2012-10-05T12:07:48">
+<testsuite errors="0" failures="0" hostname="alfredo-Aspire-2930" name="cicTest.DecideTest" tests="2" time="0.125" timestamp="2012-10-06T15:35:44">
   <properties>
     <property name="netbeans.autoupdate.country" value="US" />
     <property name="nb.wait.for.caches" value="true" />
@@ -31,6 +31,7 @@
     <property name="libs.beans-binding.classpath" value="/home/alfredo/netbeans-7.2/java/modules/ext/beansbinding-1.2.1.jar" />
     <property name="ap.proc.none.internal" value="" />
     <property name="libs.JWSAntTasks.maven-pom" value="" />
+    <property name="jnlp.signing.keystore" value="" />
     <property name="libs.testng.src" value="" />
     <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/" />
     <property name="libs.jaxb.maven-pom" value="" />
@@ -41,9 +42,10 @@
     <property name="copylibs.rebase" value="true" />
     <property name="manifest.available+main.class" value="true" />
     <property name="libs.swing-layout.maven-pom" value="" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner cicTest.DecideTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/home/alfredo/Desktop/cic/build/test/results/TEST-cicTest.DecideTest.xml crashfile=/home/alfredo/Desktop/cic/build/junitvmwatcher841678209123054638.properties propsfile=/home/alfredo/Desktop/cic/build/junit2275556004228784881.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner cicTest.DecideTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/home/alfredo/Desktop/cic/build/test/results/TEST-cicTest.DecideTest.xml crashfile=/home/alfredo/Desktop/cic/build/junitvmwatcher1478151995729263153.properties propsfile=/home/alfredo/Desktop/cic/build/junit6678629565704351314.properties" />
     <property name="build.classes.dir" value="build/classes" />
     <property name="netbeans.accept_license_class" value="org.netbeans.license.AcceptLicense" />
+    <property name="jnlp.descriptor" value="application" />
     <property name="build.sysclasspath" value="ignore" />
     <property name="ap.supported.internal" value="true" />
     <property name="libs.jaxws21.javadoc" value="/home/alfredo/netbeans-7.2/java/docs/jaxws-api-doc.zip" />
@@ -59,10 +61,12 @@
     <property name="libs.ejb3-persistence.src" value="" />
     <property name="java.endorsed.dirs" value="/usr/lib/jvm/java-7-oracle/jre/lib/endorsed" />
     <property name="netbeans.dynamic.classpath" value="/home/alfredo/netbeans-7.2/platform/core/org-openide-filesystems.jar:/home/alfredo/netbeans-7.2/platform/core/core.jar:/home/alfredo/netbeans-7.2/platform/core/locale/core_pt_BR.jar:/home/alfredo/netbeans-7.2/platform/core/locale/core_ru.jar:/home/alfredo/netbeans-7.2/platform/core/locale/org-openide-filesystems_zh_CN.jar:/home/alfredo/netbeans-7.2/platform/core/locale/core_ja.jar:/home/alfredo/netbeans-7.2/platform/core/locale/org-openide-filesystems_pt_BR.jar:/home/alfredo/netbeans-7.2/platform/core/locale/org-openide-filesystems_ru.jar:/home/alfredo/netbeans-7.2/platform/core/locale/org-openide-filesystems_ja.jar:/home/alfredo/netbeans-7.2/platform/core/locale/core_zh_CN.jar:/home/alfredo/netbeans-7.2/nb/core/org-netbeans-upgrader.jar:/home/alfredo/netbeans-7.2/nb/core/locale/org-netbeans-upgrader_ja.jar:/home/alfredo/netbeans-7.2/nb/core/locale/core_nb_pt_BR.jar:/home/alfredo/netbeans-7.2/nb/core/locale/core_nb_zh_CN.jar:/home/alfredo/netbeans-7.2/nb/core/locale/core_nb.jar:/home/alfredo/netbeans-7.2/nb/core/locale/org-netbeans-upgrader_ru.jar:/home/alfredo/netbeans-7.2/nb/core/locale/core_nb_ru.jar:/home/alfredo/netbeans-7.2/nb/core/locale/org-netbeans-upgrader_zh_CN.jar:/home/alfredo/netbeans-7.2/nb/core/locale/core_nb_ja.jar:/home/alfredo/netbeans-7.2/nb/core/locale/org-netbeans-upgrader_pt_BR.jar" />
+    <property name="jnlp.enabled" value="false" />
     <property name="java.vm.specification.version" value="1.7" />
     <property name="netbeans.productversion" value="NetBeans IDE 7.2 (Build 201207171143)" />
     <property name="libs.hibernate-persistence.classpath" value="/home/alfredo/netbeans-7.2/java/modules/ext/hibernate/antlr-2.7.6.jar:/home/alfredo/netbeans-7.2/java/modules/ext/hibernate/asm.jar:/home/alfredo/netbeans-7.2/java/modules/ext/hibernate/asm-attrs.jar:/home/alfredo/netbeans-7.2/java/modules/ext/hibernate/cglib-2.1.3.jar:/home/alfredo/netbeans-7.2/java/modules/ext/hibernate/commons-collections-2.1.1.jar:/home/alfredo/netbeans-7.2/ide/modules/org-apache-commons-logging.jar:/home/alfredo/netbeans-7.2/java/modules/ext/hibernate/dom4j-1.6.1.jar:/home/alfredo/netbeans-7.2/java/modules/ext/hibernate/ehcache-1.2.3.jar:/home/alfredo/netbeans-7.2/java/modules/ext/hibernate/jdbc2_0-stdext.jar:/home/alfredo/netbeans-7.2/java/modules/ext/hibernate/jta.jar:/home/alfredo/netbeans-7.2/java/modules/ext/hibernate/hibernate3.jar:/home/alfredo/netbeans-7.2/java/modules/ext/hibernate/hibernate-tools.jar:/home/alfredo/netbeans-7.2/java/modules/ext/hibernate/hibernate-annotations.jar:/home/alfredo/netbeans-7.2/java/modules/ext/hibernate/hibernate-commons-annotations.jar:/home/alfredo/netbeans-7.2/java/modules/ext/hibernate/hibernate-entitymanager.jar:/home/alfredo/netbeans-7.2/java/modules/ext/hibernate/javassist.jar:/home/alfredo/netbeans-7.2/java/modules/ext/hibernate/ejb3-persistence.jar" />
     <property name="libs.jaxws21.src" value="" />
+    <property name="application.title" value="cic" />
     <property name="do.archive" value="true" />
     <property name="netbeans.autoupdate.language" value="en" />
     <property name="java.vendor" value="Oracle Corporation" />
@@ -106,6 +110,7 @@
     <property name="libs.JAXB-ENDORSED.maven-pom" value="" />
     <property name="libs.spring-framework.classpath" value="/home/alfredo/netbeans-7.2/ide/modules/org-apache-commons-logging.jar:/home/alfredo/netbeans-7.2/java/modules/ext/cglib-2.2.jar:/home/alfredo/netbeans-7.2/java/modules/ext/spring/spring-2.5.6.SEC03.jar" />
     <property name="libs.eclipselink.maven-pom" value="" />
+    <property name="application.vendor" value="alfredo" />
     <property name="manifest.available" value="true" />
     <property name="libs.spring-framework300.maven-pom" value="" />
     <property name="run.test.classpath" value=":build/classes:/home/alfredo/netbeans-7.2/platform/modules/ext/junit-4.10.jar:build/test/classes" />
@@ -134,6 +139,8 @@
     <property name="netbeans.importclass" value="org.netbeans.upgrade.AutoUpgrade" />
     <property name="ant.project.default-target" value="default" />
     <property name="annotation.processing.run.all.processors" value="true" />
+    <property name="jar.archive.disabled" value="false" />
+    <property name="jnlp.signing.alias" value="" />
     <property name="libs.PostgreSQLDriver.javadoc" value="" />
     <property name="libs.MySQLDriver.maven-pom" value="" />
     <property name="libs.junit_4.javadoc" value="/home/alfredo/netbeans-7.2/java/docs/junit-4.10-javadoc.jar" />
@@ -150,6 +157,7 @@
     <property name="ant.file" value="/home/alfredo/Desktop/cic/build.xml" />
     <property name="libs.beans-binding.maven-pom" value="" />
     <property name="ant.file.type.cic-impl" value="file" />
+    <property name="jnlp.codebase.type" value="no.codebase" />
     <property name="ant.file.cic-impl" value="/home/alfredo/Desktop/cic/nbproject/build-impl.xml" />
     <property name="libs.beans-binding.src" value="" />
     <property name="java.vm.specification.vendor" value="Oracle Corporation" />
@@ -158,9 +166,10 @@
     <property name="java.vm.name" value="Java HotSpot(TM) Server VM" />
     <property name="netbeans.user" value="/home/alfredo/.netbeans/7.2" />
     <property name="javadoc.additionalparam" value="" />
+    <property name="jnlp.offline-allowed" value="false" />
     <property name="java.io.tmpdir" value="/tmp" />
     <property name="java.vendor.url" value="http://java.oracle.com/" />
-    <property name="endorsed.classpath.cmd.line.arg" value="-Xbootclasspath/p:&apos;/home/alfredo/Desktop/cic/${endorsed.classpath}&apos;" />
+    <property name="endorsed.classpath.cmd.line.arg" value="" />
     <property name="junit.available" value="true" />
     <property name="org.openide.awt.ActionReference.completion" value="org.netbeans.modules.apisupport.project.layers.PathCompletions" />
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-7-oracle/jre/lib/i386" />
@@ -192,6 +201,7 @@
     <property name="libs.absolutelayout.javadoc" value="" />
     <property name="java.specification.name" value="Java Platform API Specification" />
     <property name="do.archive+main.class.available" value="true" />
+    <property name="jnlp.mixed.code" value="default" />
     <property name="java.specification.vendor" value="Oracle Corporation" />
     <property name="libs.javac-api.classpath" value="/home/alfredo/netbeans-7.2/java/modules/ext/nb-javac-api.jar" />
     <property name="java.version" value="1.7.0_07" />
@@ -223,7 +233,7 @@
     <property name="nb.junit.batch" value="true" />
     <property name="junit.forkmode" value="perTest" />
     <property name="libs.spring-framework.maven-pom" value="" />
-    <property name="sun.boot.class.path" value="/home/alfredo/Desktop/cic/${endorsed.classpath}:/usr/lib/jvm/java-7-oracle/jre/lib/resources.jar:/usr/lib/jvm/java-7-oracle/jre/lib/rt.jar:/usr/lib/jvm/java-7-oracle/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-7-oracle/jre/lib/jsse.jar:/usr/lib/jvm/java-7-oracle/jre/lib/jce.jar:/usr/lib/jvm/java-7-oracle/jre/lib/charsets.jar:/usr/lib/jvm/java-7-oracle/jre/lib/jfr.jar:/usr/lib/jvm/java-7-oracle/jre/classes" />
+    <property name="sun.boot.class.path" value="/usr/lib/jvm/java-7-oracle/jre/lib/resources.jar:/usr/lib/jvm/java-7-oracle/jre/lib/rt.jar:/usr/lib/jvm/java-7-oracle/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-7-oracle/jre/lib/jsse.jar:/usr/lib/jvm/java-7-oracle/jre/lib/jce.jar:/usr/lib/jvm/java-7-oracle/jre/lib/charsets.jar:/usr/lib/jvm/java-7-oracle/jre/lib/jfr.jar:/usr/lib/jvm/java-7-oracle/jre/classes" />
     <property name="javac.target" value="1.7" />
     <property name="built-jar.properties" value="/home/alfredo/Desktop/cic/build/built-jar.properties" />
     <property name="ant.file.cic" value="/home/alfredo/Desktop/cic/build.xml" />
@@ -250,8 +260,10 @@
     <property name="libs.junit_4.classpath" value="/home/alfredo/netbeans-7.2/platform/modules/ext/junit-4.10.jar" />
     <property name="user.timezone" value="" />
     <property name="nb.junit.single" value="false" />
+    <property name="do.jar" value="true" />
     <property name="netbeans.dirs" value="/home/alfredo/netbeans-7.2/nb:/home/alfredo/netbeans-7.2/ergonomics:/home/alfredo/netbeans-7.2/ide:/home/alfredo/netbeans-7.2/java:/home/alfredo/netbeans-7.2/apisupport:/home/alfredo/netbeans-7.2/webcommon:/home/alfredo/netbeans-7.2/websvccommon:/home/alfredo/netbeans-7.2/enterprise:/home/alfredo/netbeans-7.2/mobility:/home/alfredo/netbeans-7.2/profiler:/home/alfredo/netbeans-7.2/python:/home/alfredo/netbeans-7.2/php:/home/alfredo/netbeans-7.2/identity:/home/alfredo/netbeans-7.2/harness:/home/alfredo/netbeans-7.2/cnd:/home/alfredo/netbeans-7.2/dlight:/home/alfredo/netbeans-7.2/groovy:/home/alfredo/netbeans-7.2/extra:/home/alfredo/netbeans-7.2/javacard:/home/alfredo/netbeans-7.2/javafx:" />
     <property name="java.ext.dirs" value="/usr/lib/jvm/java-7-oracle/jre/lib/ext:/usr/java/packages/lib/ext" />
+    <property name="endorsed.classpath" value="" />
     <property name="libs.absolutelayout.classpath" value="/home/alfredo/netbeans-7.2/java/modules/ext/AbsoluteLayout.jar" />
     <property name="excludes" value="" />
     <property name="java.class.path" value="/home/alfredo/Desktop/cic/build/classes:/home/alfredo/netbeans-7.2/platform/modules/ext/junit-4.10.jar:/home/alfredo/Desktop/cic/build/test/classes:/home/alfredo/netbeans-7.2/java/ant/lib/ant-launcher.jar:/home/alfredo/netbeans-7.2/java/ant/lib/ant.jar:/home/alfredo/netbeans-7.2/java/ant/lib/ant-junit.jar:/home/alfredo/netbeans-7.2/java/ant/lib/ant-junit4.jar" />
@@ -277,21 +289,23 @@
     <property name="libs.JAXB-ENDORSED.src" value="" />
     <property name="libs.testng.javadoc" value="/home/alfredo/netbeans-7.2/platform/docs/testng-6.5.1-javadoc.zip" />
     <property name="libs.PostgreSQLDriver.classpath" value="/home/alfredo/netbeans-7.2/ide/modules/ext/postgresql-9.1-901.jdbc4.jar" />
+    <property name="jnlp.signing" value="" />
     <property name="libs.junit.src" value="" />
     <property name="annotation.processing.source.output" value="build/generated-sources/ap-source-output" />
+    <property name="jnlp.signed" value="false" />
     <property name="main.class" value="cic.Cic" />
-    <property name="build.dir" value="build" />
     <property name="libs.CopyLibs.src" value="" />
+    <property name="build.dir" value="build" />
     <property name="ant.version" value="Apache Ant(TM) version 1.8.3 compiled on February 26 2012" />
-    <property name="build.classes.excludes" value="**/*.java,**/*.form" />
     <property name="file.encoding" value="UTF-8" />
+    <property name="build.classes.excludes" value="**/*.java,**/*.form" />
     <property name="javadoc.nonavbar" value="false" />
     <property name="jdkBug6558476" value="false" />
     <property name="platform.active" value="default_platform" />
     <property name="awt.toolkit" value="sun.awt.X11.XToolkit" />
   </properties>
-  <testcase classname="cicTest.DecideTest" name="getClaimsToDecideTest" time="0.013" />
-  <testcase classname="cicTest.DecideTest" name="decideNotOk" time="0.001" />
+  <testcase classname="cicTest.DecideTest" name="decideNotOk" time="0.011" />
+  <testcase classname="cicTest.DecideTest" name="getClaimsToDecideTest" time="0.0" />
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

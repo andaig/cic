@@ -4,9 +4,8 @@
  */
 package cic.controller;
 
-import cic.entity.Role;
 import cic.entity.Employee;
-import sun.security.jca.GetInstance;
+import cic.entity.Role;
 
 
 /**

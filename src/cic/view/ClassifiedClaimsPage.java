@@ -9,7 +9,10 @@ import cic.controller.CInsuredCheck;
 import cic.entity.Claim;
 import cic.entity.ClaimComplexity;
 import cic.entity.ClaimStatus;
+import cic.entity.exceptions.PriorityException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -176,10 +179,10 @@ public class ClassifiedClaimsPage extends CicPageWithMenu {
         jLabel2 = new javax.swing.JLabel();
         CheckInsuranceStatusLabel = new javax.swing.JLabel();
         WrapperHistoryjPanel = new javax.swing.JPanel();
-        historyJPanel2 = new cic.view.HistoryJPanel();
         ConfirmHistoryButton = new javax.swing.JButton();
         HistoryLabel = new javax.swing.JLabel();
         TextLabel = new javax.swing.JLabel();
+        historyJPanel2 = new cic.view.HistoryJPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -243,23 +246,27 @@ public class ClassifiedClaimsPage extends CicPageWithMenu {
         WrapperHistoryjPanelLayout.setHorizontalGroup(
             WrapperHistoryjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(WrapperHistoryjPanelLayout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(WrapperHistoryjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(WrapperHistoryjPanelLayout.createSequentialGroup()
-                        .addComponent(ConfirmHistoryButton)
-                        .addGap(31, 31, 31)
-                        .addComponent(HistoryLabel))
-                    .addComponent(TextLabel))
-                .addContainerGap(189, Short.MAX_VALUE))
-            .addComponent(historyJPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addContainerGap()
+                        .addGroup(WrapperHistoryjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(WrapperHistoryjPanelLayout.createSequentialGroup()
+                                .addComponent(ConfirmHistoryButton)
+                                .addGap(31, 31, 31)
+                                .addComponent(HistoryLabel))
+                            .addComponent(TextLabel)))
+                    .addGroup(WrapperHistoryjPanelLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(historyJPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 536, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(69, Short.MAX_VALUE))
         );
         WrapperHistoryjPanelLayout.setVerticalGroup(
             WrapperHistoryjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(WrapperHistoryjPanelLayout.createSequentialGroup()
                 .addComponent(TextLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(historyJPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addGap(30, 30, 30)
+                .addComponent(historyJPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
                 .addGroup(WrapperHistoryjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ConfirmHistoryButton)
                     .addComponent(HistoryLabel))
@@ -318,7 +325,7 @@ public class ClassifiedClaimsPage extends CicPageWithMenu {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(PhoneGarageStatusLabel))
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(431, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -328,7 +335,7 @@ public class ClassifiedClaimsPage extends CicPageWithMenu {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 515, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(72, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addComponent(LowerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
@@ -340,16 +347,20 @@ public class ClassifiedClaimsPage extends CicPageWithMenu {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(LowerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void SendSmsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SendSmsButtonActionPerformed
-        // TODO add your handling code here:
-        
-        CClaimManager.getInstance().phoneGarage(currentClaim);
+        try {
+            // TODO add your handling code here:
+
+            CClaimManager.getInstance().phoneGarage(currentClaim);
+        } catch (PriorityException ex) {
+            Logger.getLogger(ClassifiedClaimsPage.class.getName()).log(Level.SEVERE, null, ex);
+        }
         ClassifiedClaimsPage ccp=new ClassifiedClaimsPage();
         ccp.setVisible(true);
         this.dispose();
@@ -368,8 +379,12 @@ public class ClassifiedClaimsPage extends CicPageWithMenu {
     }//GEN-LAST:event_CheckInsuranceButtonActionPerformed
 
     private void ConfirmHistoryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmHistoryButtonActionPerformed
-        // TODO add your handling code here:
-        CClaimManager.getInstance().CheckHistory(currentClaim);
+        try {
+            // TODO add your handling code here:
+            CClaimManager.getInstance().CheckHistory(currentClaim);
+        } catch (PriorityException ex) {
+            Logger.getLogger(ClassifiedClaimsPage.class.getName()).log(Level.SEVERE, null, ex);
+        }
         ClassifiedClaimsPage ccp=new ClassifiedClaimsPage();
         ccp.setVisible(true);
         this.dispose();

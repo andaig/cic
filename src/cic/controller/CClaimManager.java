@@ -10,6 +10,7 @@ import cic.entity.ClaimStatus;
 import cic.entity.Decision;
 
 import cic.entity.User;
+import cic.entity.exceptions.PriorityException;
 import java.util.ArrayList;
 
 /**
@@ -71,13 +72,13 @@ public class CClaimManager {
     }
 
     
-    public void CheckHistory(Claim c){
+    public void CheckHistory(Claim c) throws PriorityException{
         
         c.setCheckHistoryCompleted();
         updateClaimPreliminaryStatus(c);
     
     }
-    public Boolean phoneGarage(Claim sc) {
+    public Boolean phoneGarage(Claim sc) throws PriorityException {
          String number="0767155358";
          String text = sc.generateGarageText();
          
@@ -166,6 +167,25 @@ public class CClaimManager {
         ret.addAll(this.getSimpleClaimsNotPreliminaryComplete());
         ret.addAll(this.getComplexClaimsNotPreliminaryComplete());
               
+        return ret;
+    }
+
+    public ArrayList<Claim> search(String string) {
+        ArrayList<Claim> ret=new ArrayList<>();
+        if(string.compareTo("")==0){
+            for(Claim c:this.claims){
+                ret.add(c);
+            }
+            
+        }
+        else{
+            for(Claim c:this.claims){
+                if(c.getId().toString().matches(string)){
+                    ret.add(c);
+                }
+            }
+        }
+        
         return ret;
     }
 

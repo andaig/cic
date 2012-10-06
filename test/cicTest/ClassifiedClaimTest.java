@@ -10,6 +10,7 @@ import cic.controller.CInsuredCheck;
 import cic.entity.Claim;
 import cic.entity.ClaimStatus;
 import cic.entity.User;
+import cic.entity.exceptions.PriorityException;
 import java.util.ArrayList;
 import org.junit.After;
 import static org.junit.Assert.*;
@@ -90,7 +91,7 @@ public class ClassifiedClaimTest {
     
     
      @Test
-     public void phoneGarageSimpleClaimTest() {
+     public void phoneGarageSimpleClaimTest() throws PriorityException {
       
          assertTrue(Cic.claim5.getPhoneGarageStatus()==ClaimStatus.NOT_COMPLETED);
          CClaimManager control=CClaimManager.getInstance();
@@ -116,7 +117,7 @@ public class ClassifiedClaimTest {
      }
     
     @Test
-    public void CheckHistoryComplexClaimTest() {
+    public void CheckHistoryComplexClaimTest() throws PriorityException {
         Cic.claim4.setCheckInsuranceCompleted();
         assertTrue(Cic.claim4.getPreliminaryStatus()==ClaimStatus.NOT_COMPLETED);
         assertTrue(Cic.claim4.getCheckInsuranceStatus()==ClaimStatus.COMPLETED);
@@ -134,7 +135,7 @@ public class ClassifiedClaimTest {
      }
     
      @Test
-    public void PhoneGarageComplexClaimTest() {
+    public void PhoneGarageComplexClaimTest() throws PriorityException {
         Cic.claim4.setCheckInsuranceCompleted();
         Cic.claim4.setCheckHistoryCompleted();
        

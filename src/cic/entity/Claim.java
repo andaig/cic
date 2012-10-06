@@ -4,6 +4,8 @@
  */
 package cic.entity;
 
+import cic.entity.exceptions.PriorityException;
+
 /**
  *
  * @author alfredo
@@ -128,6 +130,7 @@ public class Claim {
     }
 
     public void setPhoneGarageCompleted() {
+        
         this.PhoneGarageStatus= ClaimStatus.COMPLETED;
     }
 
@@ -136,7 +139,10 @@ public class Claim {
         
     }
 
-    public void setCheckHistoryCompleted() {
+    public void setCheckHistoryCompleted() throws PriorityException {
+        if(this.CheckInsuranceStatus!=ClaimStatus.COMPLETED){
+            throw new PriorityException("trying to check history before checking insurance for complex claim");
+        }
         this.CheckHistoryStatus = ClaimStatus.COMPLETED;
     }
 

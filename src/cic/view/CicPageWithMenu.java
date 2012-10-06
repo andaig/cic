@@ -19,7 +19,8 @@ public class CicPageWithMenu extends CicPage {
     public CicPageWithMenu() {
         initComponents();
         
-        this.UsernameLabel.setText(CAuthentication.getInstance().getUsername());
+        
+        this.LoggedAsMenu.setText("Logged as " + CAuthentication.getInstance().getUsername());
         
         CAuthentication auth=CAuthentication.getInstance();
         Role role=auth.getEmployeeRole();
@@ -46,9 +47,6 @@ public class CicPageWithMenu extends CicPage {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        LogoutButton = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        UsernameLabel = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
@@ -56,19 +54,11 @@ public class CicPageWithMenu extends CicPage {
         UnclassifiedClaimsMenuItem = new javax.swing.JMenuItem();
         ClassifiedClaimsMenuItem = new javax.swing.JMenuItem();
         MakeDecisionMenuItem = new javax.swing.JMenuItem();
+        SearchClaimMenuItem = new javax.swing.JMenuItem();
+        LoggedAsMenu = new javax.swing.JMenu();
+        LogoutMenuItem = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        LogoutButton.setText("Logout");
-        LogoutButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LogoutButtonActionPerformed(evt);
-            }
-        });
-
-        jLabel1.setText("Logged as");
-
-        UsernameLabel.setText("------");
 
         jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
@@ -107,7 +97,27 @@ public class CicPageWithMenu extends CicPage {
         });
         jMenu3.add(MakeDecisionMenuItem);
 
+        SearchClaimMenuItem.setText("Search claim");
+        SearchClaimMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SearchClaimMenuItemActionPerformed(evt);
+            }
+        });
+        jMenu3.add(SearchClaimMenuItem);
+
         jMenuBar1.add(jMenu3);
+
+        LoggedAsMenu.setText("Logged");
+
+        LogoutMenuItem.setText("Logout");
+        LogoutMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LogoutMenuItemActionPerformed(evt);
+            }
+        });
+        LoggedAsMenu.add(LogoutMenuItem);
+
+        jMenuBar1.add(LoggedAsMenu);
 
         setJMenuBar(jMenuBar1);
 
@@ -115,23 +125,11 @@ public class CicPageWithMenu extends CicPage {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 190, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(UsernameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(LogoutButton))
+            .addGap(0, 400, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(LogoutButton)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(UsernameLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGap(0, 262, Short.MAX_VALUE))
+            .addGap(0, 299, Short.MAX_VALUE)
         );
 
         pack();
@@ -165,12 +163,20 @@ public class CicPageWithMenu extends CicPage {
         this.dispose();
     }//GEN-LAST:event_MakeDecisionMenuItemActionPerformed
 
-    private void LogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutButtonActionPerformed
+    private void LogoutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutMenuItemActionPerformed
         // TODO add your handling code here:
+          // TODO add your handling code here:
         LoginPage lp=new LoginPage();
         lp.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_LogoutButtonActionPerformed
+    }//GEN-LAST:event_LogoutMenuItemActionPerformed
+
+    private void SearchClaimMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchClaimMenuItemActionPerformed
+        // TODO add your handling code here:
+        SearchClaimPage p=new SearchClaimPage();
+        p.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_SearchClaimMenuItemActionPerformed
 
     /**
      * @param args the command line arguments
@@ -208,12 +214,12 @@ public class CicPageWithMenu extends CicPage {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem ClassifiedClaimsMenuItem;
-    private javax.swing.JButton LogoutButton;
+    private javax.swing.JMenu LoggedAsMenu;
+    private javax.swing.JMenuItem LogoutMenuItem;
     private javax.swing.JMenuItem MakeDecisionMenuItem;
     private javax.swing.JMenuItem RegisterClaimMenuItem;
+    private javax.swing.JMenuItem SearchClaimMenuItem;
     private javax.swing.JMenuItem UnclassifiedClaimsMenuItem;
-    private javax.swing.JLabel UsernameLabel;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;

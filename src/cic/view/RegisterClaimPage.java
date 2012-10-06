@@ -23,11 +23,9 @@ public class RegisterClaimPage extends CicPageWithMenu {
      */
     public RegisterClaimPage() {
         initComponents();
-        sendNotificationButton.setVisible(false);
-        notInsuredLabel.setVisible(false);
-        fnameTextField.setEditable(false);
-        lnameTextField.setEditable(false);
-        emailTextField.setVisible(false);
+        this.InsuredPanel.setVisible(false);
+            this.notInsuredPanel.setVisible(false);
+        
     }
 
     /**
@@ -39,25 +37,24 @@ public class RegisterClaimPage extends CicPageWithMenu {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        checkInsuranceButton = new javax.swing.JButton();
+        ssnTextField = new javax.swing.JTextField();
+        notInsuredPanel = new javax.swing.JPanel();
+        emailTextField = new javax.swing.JTextField();
+        notInsuredLabel = new javax.swing.JLabel();
+        sendNotificationButton = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        InsuredPanel = new javax.swing.JPanel();
         fnameTextField = new javax.swing.JTextField();
         lnameTextField = new javax.swing.JTextField();
         descriptionTextField = new javax.swing.JTextField();
-        checkInsuranceButton = new javax.swing.JButton();
-        sendNotificationButton = new javax.swing.JButton();
-        notInsuredLabel = new javax.swing.JLabel();
-        ssnTextField = new javax.swing.JTextField();
-        emailTextField = new javax.swing.JTextField();
-        RegisterButton = new javax.swing.JButton();
         priceOfCarTextField = new javax.swing.JTextField();
         costOfDamageTextField = new javax.swing.JTextField();
+        RegisterButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        fnameTextField.setText("first name");
-
-        lnameTextField.setText("last name");
-
-        descriptionTextField.setText("description");
 
         checkInsuranceButton.setText("Check insurance");
         checkInsuranceButton.addActionListener(new java.awt.event.ActionListener() {
@@ -66,6 +63,12 @@ public class RegisterClaimPage extends CicPageWithMenu {
             }
         });
 
+        ssnTextField.setText("ssn");
+
+        emailTextField.setText("email address");
+
+        notInsuredLabel.setText("The user is not insured. Send him this notification");
+
         sendNotificationButton.setText("send");
         sendNotificationButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -73,11 +76,45 @@ public class RegisterClaimPage extends CicPageWithMenu {
             }
         });
 
-        notInsuredLabel.setText("The user is not insured. Send him this notification");
+        javax.swing.GroupLayout notInsuredPanelLayout = new javax.swing.GroupLayout(notInsuredPanel);
+        notInsuredPanel.setLayout(notInsuredPanelLayout);
+        notInsuredPanelLayout.setHorizontalGroup(
+            notInsuredPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(notInsuredPanelLayout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addGroup(notInsuredPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(notInsuredPanelLayout.createSequentialGroup()
+                        .addComponent(notInsuredLabel)
+                        .addGap(7, 7, 7))
+                    .addGroup(notInsuredPanelLayout.createSequentialGroup()
+                        .addComponent(emailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(61, 61, 61)
+                        .addComponent(sendNotificationButton)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        notInsuredPanelLayout.setVerticalGroup(
+            notInsuredPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(notInsuredPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(notInsuredLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(notInsuredPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(sendNotificationButton)
+                    .addComponent(emailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(211, 211, 211))
+        );
 
-        ssnTextField.setText("ssn");
+        jLabel3.setText("Insert ssn of customer");
 
-        emailTextField.setText("email address");
+        fnameTextField.setText("first name");
+
+        lnameTextField.setText("last name");
+
+        descriptionTextField.setText("description");
+
+        priceOfCarTextField.setText("price of Car");
+
+        costOfDamageTextField.setText("cost of damage");
 
         RegisterButton.setText("Register");
         RegisterButton.addActionListener(new java.awt.event.ActionListener() {
@@ -86,9 +123,56 @@ public class RegisterClaimPage extends CicPageWithMenu {
             }
         });
 
-        priceOfCarTextField.setText("price of Car");
+        jLabel1.setText("Customer's details");
 
-        costOfDamageTextField.setText("cost of damage");
+        jLabel2.setText("Claim's details");
+
+        javax.swing.GroupLayout InsuredPanelLayout = new javax.swing.GroupLayout(InsuredPanel);
+        InsuredPanel.setLayout(InsuredPanelLayout);
+        InsuredPanelLayout.setHorizontalGroup(
+            InsuredPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(InsuredPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(InsuredPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InsuredPanelLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(RegisterButton, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(InsuredPanelLayout.createSequentialGroup()
+                        .addComponent(descriptionTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(priceOfCarTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(costOfDamageTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(InsuredPanelLayout.createSequentialGroup()
+                        .addGroup(InsuredPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(InsuredPanelLayout.createSequentialGroup()
+                                .addComponent(fnameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(34, 34, 34)
+                                .addComponent(lnameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        InsuredPanelLayout.setVerticalGroup(
+            InsuredPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(InsuredPanelLayout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addGroup(InsuredPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(fnameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lnameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(22, 22, 22)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(InsuredPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(descriptionTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(priceOfCarTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(costOfDamageTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addComponent(RegisterButton))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -96,68 +180,32 @@ public class RegisterClaimPage extends CicPageWithMenu {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(notInsuredPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(ssnTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(checkInsuranceButton))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(notInsuredLabel)
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addGap(21, 21, 21))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(emailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(61, 61, 61)
-                        .addComponent(sendNotificationButton)
-                        .addContainerGap())
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(descriptionTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
-                            .addComponent(fnameTextField, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(34, 34, 34)
-                                .addComponent(lnameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(priceOfCarTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(costOfDamageTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(RegisterButton, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap())))))
+                        .addComponent(ssnTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34)
+                        .addComponent(checkInsuranceButton))
+                    .addComponent(InsuredPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 47, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(53, 53, 53)
+                .addGap(30, 30, 30)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(checkInsuranceButton)
                     .addComponent(ssnTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(notInsuredLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(sendNotificationButton)
-                    .addComponent(emailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(fnameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lnameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(descriptionTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(priceOfCarTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(costOfDamageTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(35, 35, 35))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(RegisterButton)
-                        .addContainerGap())))
+                .addGap(18, 18, 18)
+                .addComponent(notInsuredPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(InsuredPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         pack();
@@ -171,11 +219,13 @@ public class RegisterClaimPage extends CicPageWithMenu {
         us.load(ssnTextField.getText());
         
         if(!res){
-            sendNotificationButton.setVisible(true);
-            notInsuredLabel.setVisible(true);
-            emailTextField.setVisible(true);
+            
+            this.InsuredPanel.setVisible(false);
+            this.notInsuredPanel.setVisible(true);
         }
         else{
+            this.InsuredPanel.setVisible(true);
+            this.notInsuredPanel.setVisible(false);
             fnameTextField.setText(us.getFname());
             lnameTextField.setText(us.getLname());
             currentUser=us;
@@ -248,14 +298,19 @@ public class RegisterClaimPage extends CicPageWithMenu {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel InsuredPanel;
     private javax.swing.JButton RegisterButton;
     private javax.swing.JButton checkInsuranceButton;
     private javax.swing.JTextField costOfDamageTextField;
     private javax.swing.JTextField descriptionTextField;
     private javax.swing.JTextField emailTextField;
     private javax.swing.JTextField fnameTextField;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JTextField lnameTextField;
     private javax.swing.JLabel notInsuredLabel;
+    private javax.swing.JPanel notInsuredPanel;
     private javax.swing.JTextField priceOfCarTextField;
     private javax.swing.JButton sendNotificationButton;
     private javax.swing.JTextField ssnTextField;
