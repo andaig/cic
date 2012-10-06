@@ -19,7 +19,7 @@ import java.util.ArrayList;
  */
 public class CClaimManager {
  private static CClaimManager instance;
- private ArrayList<Claim> claims= new  ArrayList<>();
+ private ArrayList<Claim> claims= new  ArrayList<Claim>();
  
  private CClaimManager(){
  }
@@ -40,7 +40,7 @@ public class CClaimManager {
  }
 
     public ArrayList<Claim> getUnclassifiedClaims() {
-        ArrayList<Claim> ret= new ArrayList<>();
+        ArrayList<Claim> ret= new ArrayList<Claim>();
         for(Claim cl:this.claims ){
             if(cl.getStatus()==ClaimComplexity.NOT_CLASSIFIED){
                 ret.add(cl);
@@ -50,7 +50,7 @@ public class CClaimManager {
     }
 
     public ArrayList<Claim> getHistoryOfUser(String ssn) {
-        ArrayList<Claim> ret=new ArrayList<>();
+        ArrayList<Claim> ret=new ArrayList<Claim>();
         for(Claim c:claims){
            
             if((c.getOwnerSsn().compareTo(ssn)==0)){
@@ -116,7 +116,7 @@ public class CClaimManager {
     }
 
     public ArrayList<Claim> getPreliminaryCompleteClaims() {
-        ArrayList<Claim> ret=new ArrayList<>();
+        ArrayList<Claim> ret=new ArrayList<Claim>();
         for(Claim c : this.claims){
             if(c.getPreliminaryStatus()==ClaimStatus.COMPLETED && 
                     c.getOverallStatus()==ClaimStatus.NOT_COMPLETED){
@@ -136,7 +136,7 @@ public class CClaimManager {
     }
 
     public ArrayList<Claim> getSimpleClaimsNotPreliminaryComplete() {
-        ArrayList<Claim> ret=new ArrayList<>();
+        ArrayList<Claim> ret=new ArrayList<Claim>();
         for(Claim c:this.claims){
             if(c.getPreliminaryStatus()==ClaimStatus.NOT_COMPLETED &&
                     c.getComplexity() == ClaimComplexity.SIMPLE){
@@ -149,7 +149,7 @@ public class CClaimManager {
     }
 
     public ArrayList<Claim> getComplexClaimsNotPreliminaryComplete() {
-        ArrayList<Claim> ret=new ArrayList<>();
+        ArrayList<Claim> ret=new ArrayList<Claim>();
         for(Claim c:this.claims){
             if(c.getPreliminaryStatus()==ClaimStatus.NOT_COMPLETED &&
                     c.getComplexity() == ClaimComplexity.COMPLEX){
@@ -162,7 +162,7 @@ public class CClaimManager {
     }
 
     public ArrayList<Claim> getClassifiedClaimsNotPreliminaryComplete() {
-        ArrayList<Claim> ret=new ArrayList<>();
+        ArrayList<Claim> ret=new ArrayList<Claim>();
         
         ret.addAll(this.getSimpleClaimsNotPreliminaryComplete());
         ret.addAll(this.getComplexClaimsNotPreliminaryComplete());
@@ -171,7 +171,7 @@ public class CClaimManager {
     }
 
     public ArrayList<Claim> search(String string) {
-        ArrayList<Claim> ret=new ArrayList<>();
+        ArrayList<Claim> ret=new ArrayList<Claim>();
         if(string.compareTo("")==0){
             for(Claim c:this.claims){
                 ret.add(c);

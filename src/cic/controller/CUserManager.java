@@ -4,6 +4,7 @@
  */
 package cic.controller;
 
+import cic.entity.Claim;
 import cic.entity.User;
 import java.util.ArrayList;
 
@@ -14,7 +15,7 @@ import java.util.ArrayList;
 public class CUserManager {
     
     private static CUserManager instance=null;
-    private ArrayList<User> users= new ArrayList<>();
+    private ArrayList<User> users= new ArrayList<User>();
     private CUserManager(){
         
     }

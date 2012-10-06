@@ -25,7 +25,7 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="515" max="-2" attributes="0"/>
-              <EmptySpace pref="72" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <Component id="LowerPanel" min="-2" max="-2" attributes="0"/>
@@ -40,7 +40,7 @@
               <Component id="jScrollPane1" min="-2" pref="119" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="LowerPanel" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="27" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -161,7 +161,7 @@
                           <Component id="jScrollPane2" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="431" max="32767" attributes="0"/>
+                  <EmptySpace pref="31" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -224,27 +224,34 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="ConfirmHistoryButton" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                              <Component id="HistoryLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="ConfirmHistoryButton" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                                      <Component id="HistoryLabel" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="TextLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <Component id="TextLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                              <Component id="historyJPanel2" min="-2" pref="536" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace pref="189" max="32767" attributes="0"/>
+                      <EmptySpace pref="69" max="32767" attributes="0"/>
                   </Group>
-                  <Component id="historyJPanel2" alignment="0" pref="0" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="TextLabel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="historyJPanel2" min="-2" pref="104" max="-2" attributes="0"/>
-                      <EmptySpace pref="26" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="historyJPanel2" min="-2" pref="196" max="-2" attributes="0"/>
+                      <EmptySpace pref="49" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="ConfirmHistoryButton" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="HistoryLabel" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -255,8 +262,6 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="cic.view.HistoryJPanel" name="historyJPanel2">
-            </Component>
             <Component class="javax.swing.JButton" name="ConfirmHistoryButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Confirm History"/>
@@ -274,6 +279,8 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Table of history is disabled for simple claims."/>
               </Properties>
+            </Component>
+            <Component class="cic.view.HistoryJPanel" name="historyJPanel2">
             </Component>
           </SubComponents>
         </Container>
