@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="alfredo-Aspire-2930" name="cicTest.PriorityTest" tests="5" time="0.121" timestamp="2012-10-07T09:27:02">
+<testsuite errors="0" failures="0" hostname="alfredo-Aspire-2930" name="cicTest.PriorityTest" tests="5" time="0.337" timestamp="2012-10-07T09:49:43">
   <properties>
     <property name="netbeans.autoupdate.country" value="US" />
     <property name="nb.wait.for.caches" value="true" />
@@ -42,7 +42,7 @@
     <property name="copylibs.rebase" value="true" />
     <property name="manifest.available+main.class" value="true" />
     <property name="libs.swing-layout.maven-pom" value="" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner cicTest.PriorityTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/home/alfredo/Desktop/cic/build/test/results/TEST-cicTest.PriorityTest.xml crashfile=/home/alfredo/Desktop/cic/build/junitvmwatcher5081902527082102323.properties propsfile=/home/alfredo/Desktop/cic/build/junit1288674266591787787.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner cicTest.PriorityTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/home/alfredo/Desktop/cic/build/test/results/TEST-cicTest.PriorityTest.xml crashfile=/home/alfredo/Desktop/cic/build/junitvmwatcher3653912628165148751.properties propsfile=/home/alfredo/Desktop/cic/build/junit8613391576163792224.properties" />
     <property name="build.classes.dir" value="build/classes" />
     <property name="netbeans.accept_license_class" value="org.netbeans.license.AcceptLicense" />
     <property name="jnlp.descriptor" value="application" />
@@ -181,6 +181,7 @@
     <property name="meta.inf.dir" value="src/META-INF" />
     <property name="javadoc.encoding.used" value="UTF-8" />
     <property name="dist.jar" value="dist/cic.jar" />
+    <property name="netbeans.automatic.build" value="true" />
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment" />
     <property name="ant.project.name" value="cic" />
     <property name="netbeans.hash.code" value="unique=NB_JAVA041ef1956-1667-4f8b-a9e7-b9953e2cf474_e7a48f3a-5f97-4c67-ad75-7ad9f576b34a" />
@@ -299,16 +300,16 @@
     <property name="ant.version" value="Apache Ant(TM) version 1.8.3 compiled on February 26 2012" />
     <property name="file.encoding" value="UTF-8" />
     <property name="build.classes.excludes" value="**/*.java,**/*.form" />
-    <property name="javadoc.nonavbar" value="false" />
     <property name="jdkBug6558476" value="false" />
+    <property name="javadoc.nonavbar" value="false" />
     <property name="platform.active" value="default_platform" />
     <property name="awt.toolkit" value="sun.awt.X11.XToolkit" />
   </properties>
-  <testcase classname="cicTest.PriorityTest" name="simpleClaimPriorityPhoneFirst" time="0.012" />
-  <testcase classname="cicTest.PriorityTest" name="simpleClaimPriorityCheckInsuranceFirst" time="0.0" />
+  <testcase classname="cicTest.PriorityTest" name="simpleClaimPriorityCheckInsuranceFirst" time="0.075" />
   <testcase classname="cicTest.PriorityTest" name="complexClaimNormalFlow" time="0.0" />
-  <testcase classname="cicTest.PriorityTest" name="complexClaimHistoryInsurancePhone" time="0.0" />
-  <testcase classname="cicTest.PriorityTest" name="complexClaimPhoneHistoryInsurance" time="0.001" />
+  <testcase classname="cicTest.PriorityTest" name="complexClaimHistoryInsurancePhone" time="0.007" />
+  <testcase classname="cicTest.PriorityTest" name="complexClaimPhoneHistoryInsurance" time="0.0" />
+  <testcase classname="cicTest.PriorityTest" name="simpleClaimPriorityPhoneFirst" time="0.01" />
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

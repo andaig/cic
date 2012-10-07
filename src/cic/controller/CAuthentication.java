@@ -41,10 +41,11 @@ public class CAuthentication {
         Employee emp;
         emp = new Employee();
         emp.load(username);
-        if(emp.getUsername().compareTo(username)==0){
-            this.employee=emp;
-            this.username=username;
-            return true;           
+        if(emp.getUsername()!=null  && emp.getUsername().compareTo(username)==0){
+            
+                this.employee=emp;
+                this.username=username;
+                return true;           
         }
         else {
             return false;

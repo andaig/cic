@@ -62,7 +62,7 @@ public class Employee {
         
         }
         else {
-            this.username="";
+            this.username=null;
             this.password="";
             
         }
