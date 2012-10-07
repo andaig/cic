@@ -6,4 +6,5 @@ README
 ...
 
 2. How to run?
-Run the jar file 
+Run the jar file.
+java -jar dist/cic.jar
