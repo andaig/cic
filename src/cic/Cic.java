@@ -4,12 +4,16 @@
  */
 package cic;
 
+import cic.controller.CAuthentication;
 import cic.controller.CClaimManager;
 import cic.controller.CUserManager;
 import cic.entity.Claim;
 import cic.entity.Decision;
 import cic.entity.User;
 import cic.view.LoginPage;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.naming.AuthenticationException;
 
 /**
  *
@@ -41,11 +45,14 @@ public class Cic {
         populate();
     }
     
-    public static void populate(){
+    public static void populate() {
         if(done==true){
             return;
         }
         done=true;
+        
+        
+        CAuthentication.getInstance().authenticate("cha", "password");
         
         //add this user to the users
          user=new User("9999", "Alfredo", "Scaccialepre");
@@ -73,21 +80,30 @@ public class Cic {
          claimController.registerClaim(user.getSsn(), claim4);
          claimController.registerClaim(user.getSsn(), claim5);
          claimController.registerClaim(user.getSsn(), claim6);
-         
-         claim2.classifyAsComplex();
-         claim3.classifyAsSimple();
+        try {
+            claim2.classifyAsComplex();
+            claim3.classifyAsSimple();
          claim4.classifyAsComplex();
          claim5.classifyAsSimple();
          claim6.classifyAsComplex();
+        } catch (AuthenticationException ex) {
+            Logger.getLogger(Cic.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         
          
          
          claim2.setPreliminaryCompleted();
          claim3.setPreliminaryCompleted();
          claim6.setPreliminaryCompleted();
+        try {
+            CClaimManager.getInstance().decide(claim3, Decision.OK, "Approved");
+            CClaimManager.getInstance().decide(claim6, Decision.NOK, "Not Approved");
+        } catch (AuthenticationException ex) {
+            Logger.getLogger(Cic.class.getName()).log(Level.SEVERE, null, ex);
+        }
          
+         claim3.setPayed();
          
-         CClaimManager.getInstance().decide(claim3, Decision.OK, "Approved");
-         CClaimManager.getInstance().decide(claim6, Decision.NOK, "Not Approved");
          
          claim3.setOverallCompleted();
          claim6.setOverallCompleted();

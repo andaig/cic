@@ -8,6 +8,9 @@ import cic.controller.CClaimManager;
 import cic.entity.Claim;
 import cic.entity.User;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.naming.AuthenticationException;
 import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -226,15 +229,23 @@ public class UnclassifiedClaimsPage extends CicPageWithMenu {
     }// </editor-fold>//GEN-END:initComponents
 
     private void SimpleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SimpleButtonActionPerformed
-        // TODO add your handling code here:
-        this.currentClaim.classifyAsSimple();
+        try {
+            // TODO add your handling code here:
+            this.currentClaim.classifyAsSimple();
+        } catch (AuthenticationException ex) {
+            Logger.getLogger(UnclassifiedClaimsPage.class.getName()).log(Level.SEVERE, null, ex);
+        }
         UnclassifiedClaimsPage newPage=new UnclassifiedClaimsPage();
         newPage.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_SimpleButtonActionPerformed
 
     private void ComplexButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComplexButtonActionPerformed
-        this.currentClaim.classifyAsComplex();
+        try {
+            this.currentClaim.classifyAsComplex();
+        } catch (AuthenticationException ex) {
+            Logger.getLogger(UnclassifiedClaimsPage.class.getName()).log(Level.SEVERE, null, ex);
+        }
         UnclassifiedClaimsPage newPage=new UnclassifiedClaimsPage();
         newPage.setVisible(true);
         this.dispose();        // TODO add your handling code here:

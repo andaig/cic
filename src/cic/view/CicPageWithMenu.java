@@ -29,7 +29,11 @@ public class CicPageWithMenu extends CicPage {
             
             this.MakeDecisionMenuItem.setVisible(false);
         }
-        
+        if(role==Role.FINANCEEMPLOYEE){
+            this.jMenu3.setVisible(false);
+            
+           
+        }
         if(role==Role.CHB){
             
             this.MakeDecisionMenuItem.setVisible(false);

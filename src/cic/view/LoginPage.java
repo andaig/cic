@@ -5,6 +5,7 @@
 package cic.view;
 
 import cic.controller.CAuthentication;
+import cic.entity.Role;
 import java.awt.Color;
 
 /**
@@ -124,9 +125,16 @@ public class LoginPage extends CicPage {
         CAuthentication controller= CAuthentication.getInstance();
         if(controller.authenticate(this.UsernameTextField.getText(), this.PasswordTextField.getText())){
             
-            CicPageWithMenu pwm=new CicPageWithMenu();
-            pwm.setVisible(true);
-            this.dispose();
+            if(controller.getEmployeeRole()!=Role.FINANCEEMPLOYEE){
+                CicPageWithMenu pwm=new CicPageWithMenu();
+                pwm.setVisible(true);
+                this.dispose();
+            }
+            else{
+                PayPage pp=new PayPage();
+                pp.setVisible(true);
+                this.dispose();
+            }
         }
         else{
             wrongUsernameLabel.setVisible(true);

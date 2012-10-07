@@ -8,10 +8,12 @@ import cic.entity.Claim;
 import cic.entity.ClaimComplexity;
 import cic.entity.ClaimStatus;
 import cic.entity.Decision;
+import cic.entity.Role;
 
 import cic.entity.User;
 import cic.entity.exceptions.PriorityException;
 import java.util.ArrayList;
+import javax.naming.AuthenticationException;
 
 /**
  *
@@ -126,7 +128,12 @@ public class CClaimManager {
         return ret;
     }
 
-    public Boolean decide(Claim sc, Decision decision, String decisionText) {
+    public Boolean decide(Claim sc, Decision decision, String decisionText) throws AuthenticationException {
+        
+        if(CAuthentication.getInstance().getEmployeeRole()!=Role.CHA){
+            throw new AuthenticationException("decision authorization error");
+        }
+        
         sc.decide(decision);
         CCommunicationManager com=new CCommunicationManager();
         User u=new User();
@@ -186,6 +193,27 @@ public class CClaimManager {
             }
         }
         
+        return ret;
+    }
+
+    public void pay(Claim claim0) throws AuthenticationException {
+        if(CAuthentication.getInstance().getEmployeeRole()!=Role.FINANCEEMPLOYEE){
+            throw new AuthenticationException("only finance employee can pay a claim.");
+        }
+        
+        claim0.setPayed();
+        
+    }
+
+    public ArrayList<Claim> getClaimsToPay() {
+        ArrayList<Claim> ret=new ArrayList<Claim>();
+        
+        for(Claim c : this.claims){
+            if(c.getFinalDecision()==Decision.OK &&
+                    !c.isPayed() ){
+                ret.add(c);
+            }
+        }
         return ret;
     }
 

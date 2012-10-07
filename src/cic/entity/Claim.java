@@ -4,7 +4,9 @@
  */
 package cic.entity;
 
+import cic.controller.CAuthentication;
 import cic.entity.exceptions.PriorityException;
+import javax.naming.AuthenticationException;
 
 /**
  *
@@ -19,6 +21,9 @@ public class Claim {
   protected Double priceOfCar;
   protected ClaimComplexity complexity=ClaimComplexity.NOT_CLASSIFIED;
   protected ClaimStatus preliminaryStatus=ClaimStatus.NOT_COMPLETED;
+  
+  protected ClaimStatus payedStatus=ClaimStatus.NOT_COMPLETED;
+  
   
   protected ClaimStatus overallStatus=ClaimStatus.NOT_COMPLETED;
   protected Decision finalDecision=Decision.NOT_TAKEN;
@@ -70,6 +75,14 @@ public class Claim {
         this.overallStatus= ClaimStatus.COMPLETED;
     }
   
+    public Boolean isPayed(){
+        if(this.payedStatus==ClaimStatus.COMPLETED){
+        return true;
+        }
+        else {
+            return false;
+        }
+    }
   
   public static Integer n=0;
   
@@ -82,11 +95,19 @@ public class Claim {
         this.priceOfCar=priceOfCar;
     }
     
-    public void classifyAsSimple(){
+    public void classifyAsSimple() throws AuthenticationException{
+        if(CAuthentication.getInstance().getEmployeeRole()==Role.EMPLOYEE){
+            throw new AuthenticationException("employee trying to classify claim");
+            
+        }
         this.complexity=ClaimComplexity.SIMPLE;
     }
     
-    public void classifyAsComplex(){
+    public void classifyAsComplex() throws AuthenticationException{
+        if(CAuthentication.getInstance().getEmployeeRole()==Role.EMPLOYEE){
+            throw new AuthenticationException("employee trying to classify claim");
+            
+        }
         this.complexity=ClaimComplexity.COMPLEX;
     }
     public ClaimComplexity getStatus(){
@@ -144,6 +165,10 @@ public class Claim {
             throw new PriorityException("trying to check history before checking insurance for complex claim");
         }
         this.CheckHistoryStatus = ClaimStatus.COMPLETED;
+    }
+
+    public void setPayed() {
+        this.payedStatus=ClaimStatus.COMPLETED;
     }
 
    

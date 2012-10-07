@@ -8,6 +8,9 @@ import cic.controller.CClaimManager;
 import cic.entity.Claim;
 import cic.entity.Decision;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.naming.AuthenticationException;
 import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -149,17 +152,28 @@ public class MakeDecisionPage extends CicPageWithMenu {
     }// </editor-fold>//GEN-END:initComponents
 
     private void OkButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OkButtonActionPerformed
-        // TODO add your handling code here:
-        
+        try {
+            // TODO add your handling code here:
+            CClaimManager.getInstance().decide(currentClaim, Decision.OK, this.EmailTextArea.getText());
+        } catch (AuthenticationException ex) {
+            Logger.getLogger(MakeDecisionPage.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        MakeDecisionPage mdp=new MakeDecisionPage();
+        mdp.setVisible(true);
+        this.dispose();
         
         
         
     }//GEN-LAST:event_OkButtonActionPerformed
 
     private void NokButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NokButtonActionPerformed
-        // TODO add your handling code here:
-        CClaimManager.getInstance().decide(currentClaim,
-                Decision.NOK,this.EmailTextArea.getText());
+        try {
+            // TODO add your handling code here:
+            CClaimManager.getInstance().decide(currentClaim,
+                    Decision.NOK,this.EmailTextArea.getText());
+        } catch (AuthenticationException ex) {
+            Logger.getLogger(MakeDecisionPage.class.getName()).log(Level.SEVERE, null, ex);
+        }
         MakeDecisionPage mdp=new MakeDecisionPage();
         mdp.setVisible(true);
         this.dispose();

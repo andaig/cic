@@ -4,14 +4,19 @@
  */
 package cicTest;
 
+import cic.Cic;
+import cic.controller.CAuthentication;
 import cic.controller.CClaimManager;
 import cic.controller.CUserManager;
 import cic.entity.Claim;
 import cic.entity.ClaimComplexity;
 import cic.entity.User;
 import java.util.ArrayList;
+import javax.naming.AuthenticationException;
+import org.junit.After;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.Before;
 
 /**
  *
@@ -19,14 +24,43 @@ import static org.junit.Assert.*;
  */
 public class ViewUnclassifiedClaimsTest {
     
+    
+    
     public ViewUnclassifiedClaimsTest() {
     }
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:
     //
+    @Before
+    public void setup(){
+    Cic.populate();
+    }
+    
+    @After
+    public void clean(){
+        Cic.clean();
+    }
+    
     
     @Test
-    public void classifyTest(){
+    public void classifyTest() throws AuthenticationException{
+        CAuthentication.getInstance().authenticate("cha", "password");
+        
+        Claim c1=new Claim("a", "b", 1.0, 2.9);
+        assertTrue(c1.getComplexity()==ClaimComplexity.NOT_CLASSIFIED);
+        
+        c1.classifyAsSimple();
+        assertTrue(c1.getComplexity()==ClaimComplexity.SIMPLE);
+        
+        c1.classifyAsComplex();
+        assertTrue(c1.getComplexity()==ClaimComplexity.COMPLEX);
+        
+    }
+    
+    @Test(expected=AuthenticationException.class)
+    public void classifyTestAuthorizationException() throws AuthenticationException{
+        CAuthentication.getInstance().authenticate("employee", "password");
+         
         Claim c1=new Claim("a", "b", 1.0, 2.9);
         assertTrue(c1.getComplexity()==ClaimComplexity.NOT_CLASSIFIED);
         
@@ -39,37 +73,18 @@ public class ViewUnclassifiedClaimsTest {
     }
     
      @Test
-     public void getUnclassified() {
-         //add this user to the users
-         User us=new User("9999", "Alfredo", "Scaccialepre");
-         CUserManager userController=CUserManager.getInstance();
-         userController.addUser(us);
-         
-         
-         //create claims
-         Claim claim1=new Claim(us.getSsn(), "desc", 10.0, 15.0);
-         Claim claim2=new Claim(us.getSsn(), "desc", 10.0, 15.0);
-         Claim claim3=new Claim(us.getSsn(), "desc", 10.0, 15.0);
-         
-         //add claims      
-         CClaimManager claimController=CClaimManager.getInstance();
-         claimController.registerClaim(us.getSsn(), claim1);
-         claimController.registerClaim(us.getSsn(), claim2);
-         claimController.registerClaim(us.getSsn(), claim3);
+     public void getUnclassified() throws AuthenticationException {
+          
          
          
          //classify two of these claims
-         claim1.classifyAsSimple();
-         claim2.classifyAsComplex();
+         Cic.claim0.classifyAsSimple();
+         Cic.claim1.classifyAsComplex();
          
          
          
-         ArrayList<Claim> unclassifiedClaims=claimController.getUnclassifiedClaims();
-         assertFalse(unclassifiedClaims.contains(claim1));
-         assertFalse(unclassifiedClaims.contains(claim2));
-         assertTrue(unclassifiedClaims.contains(claim3));
-         
-         
+         ArrayList<Claim> unclassifiedClaims=CClaimManager.getInstance().getUnclassifiedClaims();
+         assertTrue(unclassifiedClaims.isEmpty());
          
      }
 }

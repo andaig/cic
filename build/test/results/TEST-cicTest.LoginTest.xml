@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="alfredo-Aspire-2930" name="cicTest.LoginTest" tests="2" time="0.101" timestamp="2012-10-06T15:35:45">
+<testsuite errors="0" failures="0" hostname="alfredo-Aspire-2930" name="cicTest.LoginTest" tests="2" time="0.094" timestamp="2012-10-07T09:27:00">
   <properties>
     <property name="netbeans.autoupdate.country" value="US" />
     <property name="nb.wait.for.caches" value="true" />
@@ -42,7 +42,7 @@
     <property name="copylibs.rebase" value="true" />
     <property name="manifest.available+main.class" value="true" />
     <property name="libs.swing-layout.maven-pom" value="" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner cicTest.LoginTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/home/alfredo/Desktop/cic/build/test/results/TEST-cicTest.LoginTest.xml crashfile=/home/alfredo/Desktop/cic/build/junitvmwatcher6517696100077522976.properties propsfile=/home/alfredo/Desktop/cic/build/junit4000140314123132761.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner cicTest.LoginTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/home/alfredo/Desktop/cic/build/test/results/TEST-cicTest.LoginTest.xml crashfile=/home/alfredo/Desktop/cic/build/junitvmwatcher4193374125713793764.properties propsfile=/home/alfredo/Desktop/cic/build/junit569625301119810884.properties" />
     <property name="build.classes.dir" value="build/classes" />
     <property name="netbeans.accept_license_class" value="org.netbeans.license.AcceptLicense" />
     <property name="jnlp.descriptor" value="application" />
@@ -224,7 +224,7 @@
     <property name="dist.javadoc.dir" value="dist/javadoc" />
     <property name="libs.swing-layout.classpath" value="/home/alfredo/netbeans-7.2/platform/modules/ext/swing-layout-1.0.4.jar" />
     <property name="build.generated.dir" value="build/generated" />
-    <property name="javac.source" value="1.7" />
+    <property name="javac.source" value="1.6" />
     <property name="libs.hibernate-persistence.src" value="" />
     <property name="line.separator" value="&#xa;" />
     <property name="java.specification.version" value="1.7" />
@@ -234,7 +234,7 @@
     <property name="junit.forkmode" value="perTest" />
     <property name="libs.spring-framework.maven-pom" value="" />
     <property name="sun.boot.class.path" value="/usr/lib/jvm/java-7-oracle/jre/lib/resources.jar:/usr/lib/jvm/java-7-oracle/jre/lib/rt.jar:/usr/lib/jvm/java-7-oracle/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-7-oracle/jre/lib/jsse.jar:/usr/lib/jvm/java-7-oracle/jre/lib/jce.jar:/usr/lib/jvm/java-7-oracle/jre/lib/charsets.jar:/usr/lib/jvm/java-7-oracle/jre/lib/jfr.jar:/usr/lib/jvm/java-7-oracle/jre/classes" />
-    <property name="javac.target" value="1.7" />
+    <property name="javac.target" value="1.6" />
     <property name="built-jar.properties" value="/home/alfredo/Desktop/cic/build/built-jar.properties" />
     <property name="ant.file.cic" value="/home/alfredo/Desktop/cic/build.xml" />
     <property name="build.test.classes.dir" value="build/test/classes" />
@@ -304,7 +304,7 @@
     <property name="platform.active" value="default_platform" />
     <property name="awt.toolkit" value="sun.awt.X11.XToolkit" />
   </properties>
-  <testcase classname="cicTest.LoginTest" name="unsuccessfulLoginTest" time="0.004" />
+  <testcase classname="cicTest.LoginTest" name="unsuccessfulLoginTest" time="0.003" />
   <testcase classname="cicTest.LoginTest" name="successfulLoginTest" time="0.001" />
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>

@@ -9,6 +9,6 @@ package cic.entity;
  * @author alfredo
  */
 public enum Role {
-    EMPLOYEE, CHA, CHB
+    EMPLOYEE, CHA, CHB,FINANCEEMPLOYEE
     
 }
