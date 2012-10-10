@@ -6,7 +6,7 @@ package cic.entity;
 
 /**
  *
- * @author alfredo
+ * @author 
  */
 public enum ClaimComplexity {
     NOT_CLASSIFIED{

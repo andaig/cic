@@ -9,7 +9,7 @@ import cic.entity.User;
 /**
  *Simple interface that simulates the ability of 
  * sending sms, email, decision and notifications
- * @author alfredo
+ * @author 
  */
 public class CCommunicationManager {
 

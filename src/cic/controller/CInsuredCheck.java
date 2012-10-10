@@ -9,7 +9,7 @@ import cic.entity.User;
 
 /**
  *
- * @author alfredo
+ * @author 
  */
 public class CInsuredCheck {
 

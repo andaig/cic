@@ -17,7 +17,7 @@ import javax.naming.AuthenticationException;
 
 /**
  *
- * @author alfredo
+ * @author 
  */
 public class CClaimManager {
  private static CClaimManager instance;

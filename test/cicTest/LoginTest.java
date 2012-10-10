@@ -13,7 +13,7 @@ import cic.entity.Role;
 
 /**
  *
- * @author alfredo
+ * @author
  */
 public class LoginTest {
     

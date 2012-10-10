@@ -6,7 +6,7 @@ package cic.entity;
 
 /**
  *
- * @author alfredo
+ * @author
  */
 public class Employee {
     protected String username;

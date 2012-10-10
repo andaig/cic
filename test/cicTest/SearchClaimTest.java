@@ -15,7 +15,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author alfredo
+ * @author
  */
 public class SearchClaimTest {
     
