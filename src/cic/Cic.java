@@ -17,7 +17,7 @@ import javax.naming.AuthenticationException;
 
 /**
  *
- * @author alfredo
+ * @author 
  */
 public class Cic {
 

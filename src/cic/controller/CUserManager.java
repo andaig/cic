@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author alfredo
+ * @author 
  */
 public class CUserManager {
     

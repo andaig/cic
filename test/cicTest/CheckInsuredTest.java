@@ -15,7 +15,7 @@ import org.junit.Before;
 
 /**
  *
- * @author alfredo
+ * @author
  */
 public class CheckInsuredTest {
     

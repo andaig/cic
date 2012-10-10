@@ -25,7 +25,7 @@ import org.junit.Test;
 
 /**
  *
- * @author alfredo
+ * @author 
  */
 public class DecideTest {
    

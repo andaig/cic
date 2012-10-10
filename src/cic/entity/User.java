@@ -8,7 +8,7 @@ import cic.controller.CUserManager;
 
 /**
  *
- * @author alfredo
+ * @author
  */
 public class User {
     

@@ -13,7 +13,7 @@ import org.junit.runners.Suite;
 
 /**
  *
- * @author alfredo
+ * @author 
  */
 @RunWith(Suite.class)
 @Suite.SuiteClasses({cicTest.CicTest.class})

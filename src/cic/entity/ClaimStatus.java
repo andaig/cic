@@ -6,7 +6,7 @@ package cic.entity;
 
 /**
  *
- * @author alfredo
+ * @author 
  */
 public enum ClaimStatus {
     COMPLETED, NOT_COMPLETED

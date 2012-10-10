@@ -6,7 +6,7 @@ package cic.entity.exceptions;
 
 /**
  *
- * @author alfredo
+ * @author
  */
 public class AuthorizationException extends Exception{
     

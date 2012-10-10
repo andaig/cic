@@ -6,7 +6,7 @@ package cic.entity;
 
 /**
  *
- * @author alfredo
+ * @author 
  */
 public enum Decision {
     NOT_TAKEN,OK,NOK    
