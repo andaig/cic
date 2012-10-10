@@ -110,7 +110,7 @@ public class ClassifiedClaimTest {
          
          CInsuredCheck control=new CInsuredCheck();
       
-         control.checkInsurance(Cic.claim5);
+         control.checkInsuranceOfUserGivenClaim(Cic.claim5);
                   
          assertTrue(Cic.claim5.getCheckInsuranceStatus()==ClaimStatus.COMPLETED);
                 
@@ -166,7 +166,7 @@ public class ClassifiedClaimTest {
         
 
         CInsuredCheck cont=new CInsuredCheck();
-        cont.checkInsurance(Cic.claim4);
+        cont.checkInsuranceOfUserGivenClaim(Cic.claim4);
         
         
         assertTrue(Cic.claim4.getCheckInsuranceStatus()==ClaimStatus.COMPLETED);

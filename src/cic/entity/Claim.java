@@ -33,7 +33,6 @@ public class Claim {
   private ClaimStatus CheckHistoryStatus=ClaimStatus.NOT_COMPLETED;
   
 
-
     public Integer getId() {
         return id;
     }
@@ -110,18 +109,20 @@ public class Claim {
         }
         this.complexity=ClaimComplexity.COMPLEX;
     }
-    public ClaimComplexity getStatus(){
-        return this.complexity;
-    }
+  
     
     public static Integer getNextId(){
         return n++;        
     }
+    
+    
     public void decide(Decision d){
         this.finalDecision=d;
         this.overallStatus=ClaimStatus.COMPLETED;
     
     }
+    
+    
     public Decision getFinalDecision() {
         return this.finalDecision;
     }

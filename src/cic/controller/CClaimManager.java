@@ -44,7 +44,7 @@ public class CClaimManager {
     public ArrayList<Claim> getUnclassifiedClaims() {
         ArrayList<Claim> ret= new ArrayList<Claim>();
         for(Claim cl:this.claims ){
-            if(cl.getStatus()==ClaimComplexity.NOT_CLASSIFIED){
+            if(cl.getComplexity()==ClaimComplexity.NOT_CLASSIFIED){
                 ret.add(cl);
             }
         }

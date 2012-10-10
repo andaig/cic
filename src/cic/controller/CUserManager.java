@@ -16,6 +16,7 @@ public class CUserManager {
     
     private static CUserManager instance=null;
     private ArrayList<User> users= new ArrayList<User>();
+  
     private CUserManager(){
         
     }

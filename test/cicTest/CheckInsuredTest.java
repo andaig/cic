@@ -38,7 +38,7 @@ public class CheckInsuredTest {
      public void checkInsuredSuccessful() {
          String ssn=Cic.user.getSsn();
          CInsuredCheck controller= new CInsuredCheck();
-         Boolean isInsured=controller.checkInsured(ssn);
+         Boolean isInsured=controller.checkUserIsInDb(ssn);
          assertTrue(isInsured);
      
      }
@@ -49,24 +49,40 @@ public class CheckInsuredTest {
          String ssn="whatever";
          
          CInsuredCheck controller= new CInsuredCheck();
-         Boolean isInsured=controller.checkInsured(ssn);
+         Boolean isInsured=controller.checkUserIsInDb(ssn);
          assertFalse(isInsured);
      
      }
      
      @Test
-     public void createUser(){
+     public void createRemoveUser(){
          User u=new User("12345678", "aa","bb");
          assertEquals(u.getFname(),"aa");
          assertEquals(u.getLname(),"bb");
          assertEquals(u.getSsn(),"12345678");
+         CUserManager cu=CUserManager.getInstance();
+         assertTrue(cu!=null);
          
-         CUserManager.getInstance().addUser(u);
+         
+         cu.addUser(u);
          
          u.load("12345678");
          assertEquals(u.getFname(),"aa");
          assertEquals(u.getLname(),"bb");
          assertEquals(u.getSsn(),"12345678");
+         
+         assertTrue(cu.search("12345678").equals(u));
+         
+         
+         
+         cu.removeUser(u);
+         u.load("12345678");
+         String newString = new String() ;
+         
+         assertTrue(u.getFname().equals(newString));
+         assertTrue(u.getLname().equals(newString));
+         assertTrue(u.getSsn().equals(newString));
+       
          
          
          

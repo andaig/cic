@@ -46,7 +46,7 @@ public class PriorityTest {
          
          CClaimManager.getInstance().phoneGarage(Cic.claim5);
          CInsuredCheck ci=new CInsuredCheck();
-         ci.checkInsurance(Cic.claim5);
+         ci.checkInsuranceOfUserGivenClaim(Cic.claim5);
      
          assertTrue(Cic.claim5.getPhoneGarageStatus()==ClaimStatus.COMPLETED);
          assertTrue(Cic.claim5.getCheckInsuranceStatus()==ClaimStatus.COMPLETED);
@@ -65,7 +65,7 @@ public class PriorityTest {
          assertTrue(Cic.claim5.getPreliminaryStatus()==ClaimStatus.NOT_COMPLETED);
 
          CInsuredCheck ci=new CInsuredCheck();
-         ci.checkInsurance(Cic.claim5);
+         ci.checkInsuranceOfUserGivenClaim(Cic.claim5);
 
          CClaimManager.getInstance().phoneGarage(Cic.claim5);
      
@@ -86,7 +86,7 @@ public class PriorityTest {
          assertTrue(Cic.claim4.getPreliminaryStatus()==ClaimStatus.NOT_COMPLETED);
          
          CInsuredCheck ci=new CInsuredCheck();
-         ci.checkInsurance(Cic.claim4);
+         ci.checkInsuranceOfUserGivenClaim(Cic.claim4);
      
          CClaimManager.getInstance().phoneGarage(Cic.claim4);
          CClaimManager.getInstance().CheckHistory(Cic.claim4);
@@ -112,7 +112,7 @@ public class PriorityTest {
          CClaimManager.getInstance().CheckHistory(Cic.claim4);
          
          CInsuredCheck ci=new CInsuredCheck();
-         ci.checkInsurance(Cic.claim4);
+         ci.checkInsuranceOfUserGivenClaim(Cic.claim4);
      
          CClaimManager.getInstance().phoneGarage(Cic.claim4);
          
@@ -138,7 +138,7 @@ public class PriorityTest {
          CClaimManager.getInstance().phoneGarage(Cic.claim4);
          CClaimManager.getInstance().CheckHistory(Cic.claim4);
          CInsuredCheck ci=new CInsuredCheck();
-         ci.checkInsurance(Cic.claim4);
+         ci.checkInsuranceOfUserGivenClaim(Cic.claim4);
       
          assertTrue(Cic.claim4.getCheckHistoryStatus()==ClaimStatus.COMPLETED);
          assertTrue(Cic.claim4.getPhoneGarageStatus()==ClaimStatus.COMPLETED);

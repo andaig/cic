@@ -214,7 +214,7 @@ public class RegisterClaimPage extends CicPageWithMenu {
     private void checkInsuranceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkInsuranceButtonActionPerformed
         // TODO add your handling code here:
         CInsuredCheck controller= new CInsuredCheck();
-        Boolean res=controller.checkInsured(ssnTextField.getText());
+        Boolean res=controller.checkUserIsInDb(ssnTextField.getText());
         User us=new User();
         us.load(ssnTextField.getText());
         

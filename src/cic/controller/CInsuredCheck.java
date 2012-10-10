@@ -15,7 +15,7 @@ public class CInsuredCheck {
 
 
 
-    public Boolean checkInsured(String ssn) {
+    public Boolean checkUserIsInDb(String ssn) {
         User us;
         us = new User();
         us.load(ssn);
@@ -30,8 +30,8 @@ public class CInsuredCheck {
         
     }
     
-    public Boolean checkInsurance(Claim c) {
-       Boolean res=this.checkInsured(c.getOwnerSsn());
+    public Boolean checkInsuranceOfUserGivenClaim(Claim c) {
+       Boolean res=this.checkUserIsInDb(c.getOwnerSsn());
        
        if(res){
            c.setCheckInsuranceCompleted();

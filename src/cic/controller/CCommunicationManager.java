@@ -7,7 +7,8 @@ package cic.controller;
 import cic.entity.User;
 
 /**
- *
+ *Simple interface that simulates the ability of 
+ * sending sms, email, decision and notifications
  * @author alfredo
  */
 public class CCommunicationManager {
@@ -27,9 +28,7 @@ public class CCommunicationManager {
     }
 
     public Boolean sendSms(String number, String text) {
-        
-        
-        return true;
+      return true;
     }
 
     Boolean sendDecision(String decisionText, String email) {

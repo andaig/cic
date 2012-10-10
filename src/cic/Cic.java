@@ -83,9 +83,9 @@ public class Cic {
         try {
             claim2.classifyAsComplex();
             claim3.classifyAsSimple();
-         claim4.classifyAsComplex();
-         claim5.classifyAsSimple();
-         claim6.classifyAsComplex();
+            claim4.classifyAsComplex();
+            claim5.classifyAsSimple();
+            claim6.classifyAsComplex();
         } catch (AuthenticationException ex) {
             Logger.getLogger(Cic.class.getName()).log(Level.SEVERE, null, ex);
         }

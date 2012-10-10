@@ -133,7 +133,7 @@ public class ClassifiedClaimsPage extends CicPageWithMenu {
               
                 //implementing precedence of operations            
                if(currentClaim.getCheckInsuranceStatus()==ClaimStatus.NOT_COMPLETED){
-                   System.out.println("aaaaaaaaaaaaaa");
+                   
                    this.ConfirmHistoryButton.setEnabled(false);
                    
                }
@@ -371,7 +371,7 @@ public class ClassifiedClaimsPage extends CicPageWithMenu {
     private void CheckInsuranceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckInsuranceButtonActionPerformed
         // TODO add your handling code here:
         CInsuredCheck cont=new CInsuredCheck();
-        Boolean res=cont.checkInsurance(currentClaim);
+        Boolean res=cont.checkInsuranceOfUserGivenClaim(currentClaim);
                 
         ClassifiedClaimsPage ccp=new ClassifiedClaimsPage();
         ccp.setVisible(true);

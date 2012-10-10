@@ -54,6 +54,7 @@ public class SearchClaimTest {
         ArrayList<Claim> all;
         all = cm.search(Cic.claim0.getId().toString());
         
+                       
         assertTrue(all.contains(Cic.claim0));
         assertFalse(all.contains(Cic.claim1));
         assertFalse(all.contains(Cic.claim2));

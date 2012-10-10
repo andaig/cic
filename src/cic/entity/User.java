@@ -43,6 +43,7 @@ public class User {
          
         CUserManager con=CUserManager.getInstance();
         User x=con.search(ssnArg);
+        
         this.ssn=x.getSsn();
         this.fname=x.getFname();
         this.lname=x.getLname();
