@@ -6,6 +6,8 @@ package cicTest;
 
 import cic.Cic;
 import cic.controller.CInsuredCheck;
+import cic.controller.CUserManager;
+import cic.entity.User;
 import org.junit.After;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -50,5 +52,23 @@ public class CheckInsuredTest {
          Boolean isInsured=controller.checkInsured(ssn);
          assertFalse(isInsured);
      
+     }
+     
+     @Test
+     public void createUser(){
+         User u=new User("12345678", "aa","bb");
+         assertEquals(u.getFname(),"aa");
+         assertEquals(u.getLname(),"bb");
+         assertEquals(u.getSsn(),"12345678");
+         
+         CUserManager.getInstance().addUser(u);
+         
+         u.load("12345678");
+         assertEquals(u.getFname(),"aa");
+         assertEquals(u.getLname(),"bb");
+         assertEquals(u.getSsn(),"12345678");
+         
+         
+         
      }
 }

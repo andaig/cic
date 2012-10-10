@@ -17,17 +17,12 @@ public class Employee {
     public Employee(){
     }
         
-    public Employee(String usr, String pwd){
-        this.password=pwd;
-        this.username=usr;        
-    }
+  
     
     public String getUsername(){
         return this.username;
     }
-    public String getPassword(){
-        return this.password;
-    }
+  
     
     public Role getRole(){
         return role;
@@ -36,8 +31,7 @@ public class Employee {
     //simulates interaction with db
     public void load(String username){
 
-   
-        if(username.compareTo("employee")==0){
+       if(username.compareTo("employee")==0){
         
             this.username="employee";
             this.password="password";     
@@ -64,11 +58,10 @@ public class Employee {
         else {
             this.username=null;
             this.password="";
-            
+          
         }
 
     }
     
-    
-    
+ 
 }
