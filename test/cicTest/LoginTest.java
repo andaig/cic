@@ -39,4 +39,8 @@ public class LoginTest {
          assertFalse(isCorrect);
          
      }
+    @Test
+    public void checkCAuthenticationGet(){
+        assertTrue(CAuthentication.getInstance() != null);
+    }
 }
