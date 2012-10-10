@@ -7,6 +7,7 @@ package cicTest;
 import cic.controller.CAuthentication;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import cic.entity.Role;
 
 /**
  *
@@ -24,9 +25,13 @@ public class LoginTest {
          
          String username="employee";
          String password = "password";
+         Role role;
          CAuthentication controller= CAuthentication.getInstance();
          Boolean isCorrect=controller.authenticate(username, password);
          assertTrue(isCorrect);
+         role = controller.getEmployeeRole();
+         assertTrue(role == Role.EMPLOYEE);
+         
          
      }
     @Test
@@ -34,13 +39,15 @@ public class LoginTest {
          
          String username="asdfghjk";
          String password = "qwertyu";
+         
          CAuthentication controller= CAuthentication.getInstance();
          Boolean isCorrect=controller.authenticate(username, password);
          assertFalse(isCorrect);
-         
      }
+    
     @Test
     public void checkCAuthenticationGet(){
         assertTrue(CAuthentication.getInstance() != null);
     }
+    
 }
