@@ -5,6 +5,8 @@
 package cicTest.acceptance;
 
 import cic.Cic;
+import cic.entity.ClaimStatus;
+import cic.view.ClassifiedClaimsPage;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -36,6 +38,30 @@ public class GUIComplexPriorityTest {
     @Test
     public void checkPriorityComplexCase() {
         
+        
+        
+       assertTrue(Cic.claim4.getCheckHistoryStatus()==ClaimStatus.NOT_COMPLETED);
+       assertTrue(Cic.claim4.getCheckInsuranceStatus()==ClaimStatus.NOT_COMPLETED);
+       assertTrue(Cic.claim4.getPhoneGarageStatus()==ClaimStatus.NOT_COMPLETED);
+       assertTrue(Cic.claim4.getPreliminaryStatus()==ClaimStatus.NOT_COMPLETED);
+       
+       ClassifiedClaimsPage ccp=new ClassifiedClaimsPage();
+              
+        ccp.selectClaimNumber(4);
+        ccp.clickCheckInsuranceButton();
+        ccp=new ClassifiedClaimsPage();
+        ccp.selectClaimNumber(4);
+        ccp.clickConfirmHistoryButton();
+        ccp=new ClassifiedClaimsPage();
+        ccp.selectClaimNumber(4);
+        ccp.clickSendSmsButton();
+        
+       assertTrue(Cic.claim4.getCheckHistoryStatus()==ClaimStatus.COMPLETED);
+       assertTrue(Cic.claim4.getCheckInsuranceStatus()==ClaimStatus.COMPLETED);
+       assertTrue(Cic.claim4.getPhoneGarageStatus()==ClaimStatus.COMPLETED);
+       assertTrue(Cic.claim4.getPreliminaryStatus()==ClaimStatus.COMPLETED);
+        
+       
     
     }
 }

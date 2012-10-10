@@ -7,6 +7,7 @@ package cic.view;
 import cic.controller.CClaimManager;
 import cic.entity.Claim;
 import java.util.ArrayList;
+import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -22,6 +23,13 @@ public class HistoryJPanel extends javax.swing.JPanel {
     private String ssn;
     private DefaultTableModel modelPrevious;
     
+    /**
+     * for acceptance test
+     */
+    
+   
+    
+    
     public HistoryJPanel() {
         initComponents();
         modelPrevious=(DefaultTableModel)this.previousHistoryTable.getModel();
@@ -29,6 +37,8 @@ public class HistoryJPanel extends javax.swing.JPanel {
     }
     
     public void updateHistoryTable(Claim currentClaim){
+        
+        
         
         
         

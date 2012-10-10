@@ -32,16 +32,60 @@ public class ClassifiedClaimsPage extends CicPageWithMenu {
     private Claim currentClaim;
     
     
+    /***
+     * 
+     * for acceptance test
+     * 
+     * 
+     **/
+
+    public void clickCheckInsuranceButton(){
+        CheckInsuranceButton.doClick();
+    }
+    
+    public void clickConfirmHistoryButton(){
+        ConfirmHistoryButton.doClick();
+    }
+    
+    public void clickSendSmsButton(){
+        SendSmsButton.doClick();
+    }
+    
+    
+    public void selectClaimNumber(Integer toFind){
+        
+        Boolean done=false;
+        
+        for (int i=0;i<this.ClaimsTable.getModel().getRowCount() && !done;i++){
+            String x= (String)this.ClaimsTable.getModel().getValueAt(i, 0);
+          
+            
+            if(x.compareTo(toFind.toString())==0){
+                
+                done=true;
+                ListSelectionModel selectionModel =   this.ClaimsTable.getSelectionModel();
+        selectionModel.setSelectionInterval(i-1, i);
+            }
+           
+        }
+    }
+    
+    
+    
     /**
      * Creates new form ClassifiedClaimsPage
      */
     public ClassifiedClaimsPage() {
         initComponents();
-        refreshContent();   
+        refreshContent(); 
+        
        
     }
     
     private void refreshContent(){
+        
+        
+        
         
         this.LowerPanel.setVisible(false);
         
@@ -154,8 +198,7 @@ public class ClassifiedClaimsPage extends CicPageWithMenu {
          
      
        
-       
-       
+            
         
     }
     /**
@@ -347,7 +390,7 @@ public class ClassifiedClaimsPage extends CicPageWithMenu {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(LowerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         pack();
