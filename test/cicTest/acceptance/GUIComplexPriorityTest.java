@@ -4,6 +4,7 @@
  */
 package cicTest.acceptance;
 
+import cic.Cic;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -20,14 +21,21 @@ public class GUIComplexPriorityTest {
     
     @Before
     public void setUp() {
+        Cic.populate();
+        
     }
     
     @After
     public void tearDown() {
+        
+        Cic.clean();
     }
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:
     //
-    // @Test
-    // public void hello() {}
+    @Test
+    public void checkPriorityComplexCase() {
+        
+    
+    }
 }
