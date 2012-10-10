@@ -9,6 +9,7 @@ import cic.entity.Employee;
 import cic.entity.Role;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import cic.entity.Role;
 
 /**
  *
@@ -26,9 +27,13 @@ public class LoginTest {
          
          String username="employee";
          String password = "password";
+         Role role;
          CAuthentication controller= CAuthentication.getInstance();
          Boolean isCorrect=controller.authenticate(username, password);
          assertTrue(isCorrect);
+         role = controller.getEmployeeRole();
+         assertTrue(role == Role.EMPLOYEE);
+         
          
      }
     @Test
@@ -36,11 +41,11 @@ public class LoginTest {
          
          String username="asdfghjk";
          String password = "qwertyu";
+         
          CAuthentication controller= CAuthentication.getInstance();
          assertTrue(controller!=null);         
          Boolean isCorrect=controller.authenticate(username, password);
          assertFalse(isCorrect);
-         
      }
     
     @Test
